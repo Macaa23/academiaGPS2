@@ -6,10 +6,10 @@ import com.afanasyeu.academy.model.Postulante;
 import java.util.List;
 
 public interface InscripcionService {
-    void insertCurso(Curso curso);
+    //void insertCurso(Curso curso);
     List<Curso> getCursosByPostulanteId(Long id);
     List<Curso> getAllCursos();
-    void deleteCursoById(Long cursoId, Long postulanteId);
+    //void deleteCursoById(Long cursoId, Long postulanteId);
     //boolean getCursoByFNameLNameDBirth(Curso checkCurso);
     
 	boolean getCursoInscrito(Long course_id, Long postulante_id);

@@ -46,6 +46,13 @@ CREATE TABLE `postulante` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('asdf', 'CoffeeBean', '165740173', 'coffee@gmail.com', 'Adrian Parra Riveros', '1995/04/30', 'Masculino','123667554');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('mxd', 'SendPKS', '185556552', 'gms@gmail.com', 'Gustavo Bolivar Molina', '1995/05/30', 'Masculino','55662233');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('ironviking', 'Ragnar', '1900160013', 'nordicasgard@gmail.com', 'Erick Hackon Fernandez', '1997/10/02', 'Masculino','98456523');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('faithfully', 'Ace43', '180015450', 'urraandrea123@gmail.com', 'Andrea Urra Muñoz', '1995/01/28', 'Femenino','74518269');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('powerpuffbubble', 'BurbujaAzul', '188996553', 'pascal.ssolange@gmail.com', 'Pascal Villarroel Seguel', '1994/09/03', 'Femenino','85656232');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('dipper03', 'Keycard67', '196552320', 'wendy87@gmail.com', 'Mabel Pino Ramirez', '1993/08/06', 'Femenino','95642153');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('SolidSnake', 'GrayFox', '17556662', 'jvellastu@gmail.com', 'Jean Villalon Albornoz', '1992/02/20', 'Masculino','65856523');
 
 DROP TABLE IF EXISTS `inscripcion`;
 CREATE TABLE `inscripcion` (
@@ -59,46 +66,31 @@ CREATE TABLE `inscripcion` (
   FOREIGN KEY (`course_id`) REFERENCES `curso` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,8);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,9);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,10);
 
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,8);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,9);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,10);
 
-DROP TABLE IF EXISTS `student`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `postulante` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `dateOfBirth` datetime NOT NULL,
-  `emailAddress` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `firstName` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `lastName` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `teacher_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_teacher_id_idx` (`teacher_id`),
-  CONSTRAINT `fk_teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,8);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,9);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,10);
 
---
--- Dumping data for table `student`
---
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,8);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,9);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,10);
 
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (60,'1991-03-08 00:00:00','behemoth13@yandex.ru','Alex','Afanasyeu',52);
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
-UNLOCK TABLES;
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,8);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,9);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,10);
 
---
--- Table structure for table `teacher`
---
-
-
-
---
--- Dumping data for table `teacher`
---
-
-LOCK TABLES `teacher` WRITE;
-/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-INSERT INTO `teacher` VALUES (52,'adminadmin','adminadmin');
-/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
-UNLOCK TABLES;
+CREATE VIEW ranking AS
+SELECT curso.Nombre, curso.Nivel, curso.Cupo, count(inscripcion.id) as Inscritos_totales 
+FROM inscripcion JOIN curso on inscripcion.course_id=curso.id GROUP BY curso.Nombre;

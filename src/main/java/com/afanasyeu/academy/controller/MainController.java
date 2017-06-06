@@ -3,6 +3,7 @@ package com.afanasyeu.academy.controller;
 import com.afanasyeu.academy.model.Curso;
 import com.afanasyeu.academy.model.Inscripcion;
 import com.afanasyeu.academy.model.Postulante;
+import com.afanasyeu.academy.service.InformesService;
 import com.afanasyeu.academy.service.InscripcionService;
 import com.afanasyeu.academy.service.PostulanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,16 @@ public class MainController {
 	@Autowired
 	@Qualifier("studentValidator")
 	private Validator studentValidator;
+	
+	@Autowired
+	private InformesService informesService;
+
+	@RequestMapping(value = "/adminIndex", method = RequestMethod.GET)
+	public String adminIndex(Model model, HttpSession httpSession) {
+		model.addAttribute("ranks", informesService.getRanking());
+		return "adminIndex";
+	}
+
 
 	// SIGNUP
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -64,45 +75,53 @@ public class MainController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("postulanteLogin") Postulante postulante, BindingResult result,
 			HttpSession httpSession) {
-		Postulante curPostulante = postulanteService.getPostulanteByLogin(postulante.getUserName(),
-				postulante.getPassword());
-		if (curPostulante != null) {
-			httpSession.setAttribute("curPostulante", curPostulante);
-			return "redirect:addInscripcion2.html";
+		if (postulante.getUserName().equals("ac.admin") && postulante.getPassword().equals("danza123")) {
+			return "redirect:/adminIndex.html";
 		} else {
-			return "redirect:/";
+			Postulante curPostulante = postulanteService.getPostulanteByLogin(postulante.getUserName(),
+					postulante.getPassword());
+			if (curPostulante != null) {
+				httpSession.setAttribute("curPostulante", curPostulante);
+				return "redirect:addInscripcion.html";
+			} else {
+				return "redirect:/";
+			}
 		}
+
 	}
 
 	// INSCRIPCION
-	@RequestMapping(value = "/addInscripcion2", method = RequestMethod.GET)
+	@RequestMapping(value = "/addInscripcion", method = RequestMethod.GET)
 	public String getCursos(Model model, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		// model.addAttribute("message", null);
 		if (postulante != null) {
 			List<Curso> cursos = inscripcionService.getAllCursos();
 			model.addAttribute("cursos", cursos);
-			return "addInscripcion2";
+			return "addInscripcion";
 		} else {
 			return "redirect:login.html";
 		}
 	}
 
-	@RequestMapping(value = "/addInscripcion2", method = RequestMethod.POST)
+	@RequestMapping(value = "/addInscripcion", method = RequestMethod.POST)
 	public String addCursos(@RequestParam(value = "cursoId") Integer cursoId, @ModelAttribute("course") Curso curso,
 			Model model, BindingResult result, HttpSession httpSession) {
-		// model.addAttribute("course_id", cursoId);
-		// return "addInscripcion2";
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
-		// Long asdf = (long) 10;
 		if (inscripcionService.getCursoInscrito(cursoId.longValue(), postulante.getId())) {
 			model.addAttribute("message", "El curso ya está inscrito!");
-			return "addInscripcion2";
+			return getCursos(model, httpSession);
 		}
+		model.addAttribute("message", "Curso inscrito!");
 		inscripcionService.insertInscripcion(cursoId.longValue(), postulante.getId());
-		// curso.setPostulanteId(postulante.getId());
-		// cursoService.insertCurso(curso);
-		return "redirect:/addInscripcion2.html";
+		return getCursos(model, httpSession);
 	}
+	
+	/*@RequestMapping(value = {"/", "/adminIndex"}, method = RequestMethod.GET)
+    public String adminIndex(Model model) {
+    	return "adminIndex";
+
+    }*/
 
 	/*
 	 * @RequestMapping(value = "/cursos", method = RequestMethod.GET) public
@@ -146,9 +165,11 @@ public class MainController {
 	 * student.setPostulanteId(curPostulante.getId());
 	 * studentService.insertStudent(student); return "redirect:/students.html";
 	 * }
-	 * 
-	 * @RequestMapping(value = "/logout", method = RequestMethod.GET) public
-	 * String addStudent(HttpSession httpSession) { httpSession.invalidate();
-	 * return "redirect:/"; }
 	 */
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession httpSession) {
+		httpSession.invalidate();
+		return "redirect:/";
+	}
+
 }

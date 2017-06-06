@@ -35,11 +35,10 @@ public interface InscripcionMapper {
     Integer getNumeroInscritos(Long id);
     
     
-    @Select("SELECT ID as id, COURSE_ID as course_id, POSTULANTE_ID as postulante_id, ESTADO as Estado, FECHA as fecha FROM inscripcion WHERE postulante_id = #{postulante_id} and course_id = #{course_id}")
+    @Select("SELECT ID as id, FECHA as fecha, ESTADO as Estado, POSTULANTE_ID as postulante_id, COURSE_ID as course_id FROM inscripcion WHERE postulante_id = #{postulante_id} and course_id = #{course_id}")
     Inscripcion getCursoByPostulante(@Param("course_id")Long course_id, @Param("postulante_id") Long postulante_id);
     
 	
-
     @Delete("DELETE FROM student WHERE id =#{studentId} AND postulante_id = #{postulanteId}")
     void deleteCursoById(@Param("studentId")Long studentId, @Param("postulanteId") Long postulanteId);
     

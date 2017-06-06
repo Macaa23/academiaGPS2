@@ -4,11 +4,24 @@ import java.util.Date;
 
 public class Inscripcion {
 	
-	Long id;
-	Date fecha;
-	String Estado;
-	Long postulante_id;
-	Long course_id;
+	private Long id;
+	private Date fecha;
+	private String Estado;
+	private Long postulante_id;
+	private Long course_id;
+	
+	public Inscripcion(){
+		
+	}
+	
+	public Inscripcion(Long id, Date fecha, String Estado, Long postulante_id, Long course_id) {
+		super();
+		this.id = id;
+		this.fecha = fecha;
+		this.Estado = Estado;
+		this.postulante_id = postulante_id;
+		this.course_id = course_id;
+	}
 	
 	public Inscripcion(Date fecha, String Estado, Long postulante_id, Long course_id) {
 		super();

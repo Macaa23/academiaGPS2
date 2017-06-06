@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-		 pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -25,7 +25,7 @@
 	margin: 16px;
 }
 </style>
-<title>Login</title>
+<title>Academia de artes Danza y Cultura</title>
 </head>
 <body>
 	<script src="jquery-1.8.3.js">
@@ -47,33 +47,32 @@
 		</div>
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">Home</a></li>
+			<ul class="nav navbar-nav navbar-center">
+				<li><a href="logout.html">Inicio</a></li>
 				<c:choose>
 					<c:when test="${curPostulante == null}">
-						<li><a href="signup.html">Signup</a></li>
-						<li class="active"><a href="login.html">Login</a></li>
+						<li><a href="signup.html">Registrarse</a></li>
+						<li class="active"><a href="login.html">Ingresar</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="students.html">Students</a></li>
-						<li><a href="addStudent.html">Add Student</a></li>
-						<li><a href="logout.html">Logout</a></li>
+						<!-- li><a href="students.html">Students</a></li-->
+						<li><a href="addInscripcion.html">Inscribir curso</a></li>
+						<li><a href="logout.html">Salir</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
 		</div>
 		<!-- /.nav-collapse -->
 	</div>
-
-	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h1>Welcome to Online Web School Login</h1>
-				<p>Login to access your students!</p>
+	<div class="col-lg-6 col-lg-offset-3">
+		<div class="well">
+			<div class="container">
+				<div>
+					<h3>Inicia sesión</h3>
+					<p>Ingresa tus datos para acceder al sitio.</p>
+				</div>
 			</div>
 		</div>
-
-		<div></div>
 	</div>
 
 	<div class="col-lg-6 col-lg-offset-3">
@@ -84,31 +83,31 @@
 						<form:form id="myForm" method="post"
 							class="bs-example form-horizontal" commandName="postulanteLogin">
 							<fieldset>
-								<legend>Student Enrollment Login Form</legend>
+								<legend>Inicia sesión con tus datos</legend>
 
 								<div class="form-group">
-									<label for="userNameInput" class="col-lg-3 control-label">User
-										Name</label>
+									<label for="userNameInput" class="col-lg-3 control-label">Nombre
+										de usuario</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="User Name" />
+											id="userNameInput" placeholder="Nombre de usuario" />
 										<form:errors path="userName" cssClass="error" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
+									<label for="passwordInput" class="col-lg-3 control-label">Contraseña</label>
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
-											path="password" id="passwordInput" placeholder="Password" />
+											path="password" id="passwordInput" placeholder="Contraseña" />
 										<form:errors path="password" cssClass="error" />
 									</div>
 								</div>
 
 								<div class="col-lg-9 col-lg-offset-3">
-									<button class="btn btn-default">Cancel</button>
+									<button class="btn btn-default">Cancelar</button>
 
-									<button class="btn btn-primary">Login</button>
+									<button class="btn btn-primary">Acceder</button>
 								</div>
 							</fieldset>
 						</form:form>

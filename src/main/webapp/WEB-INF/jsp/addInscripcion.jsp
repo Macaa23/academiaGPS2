@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Student Enrollment Signup</title>
+<title>Academia de artes Danza y Cultura</title>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
 <link href="datepicker/css/datepicker.css" rel="stylesheet" />
 <link href="assets/css/bootstrap-united.css" rel="stylesheet" />
@@ -19,6 +19,12 @@
 .red {
 	font-weight: bold;
 	color: red;
+}
+
+.orange {
+	font-weight: bold;
+	color: orange;
+	font-size: 1.3em;
 }
 
 .message {
@@ -45,18 +51,18 @@
 		</div>
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">Home</a></li>
+			<ul class="nav navbar-nav navbar-center">
+				<!--li><a href="/">Inicio</a></li-->
 				<c:choose>
 					<c:when test="${curPostulante == null}">
-						<li><a href="signup.html">Signup</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="signup.html">Registrarse</a></li>
+						<li><a href="login.html">Ingresar</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="students.html">Students</a></li>
+						<!--li><a href="students.html">Students</a></li-->
 						<li class="active"><a href="addInscripcion.html">Inscribir
 								Curso</a></li>
-						<li><a href="logout.html">Logout</a></li>
+						<li><a href="logout.html">Salir</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
@@ -81,54 +87,45 @@
 	</script>
 
 
-	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h3>
-					Bienvenido(a) al módulo de inscripción de cursos
-					</h1>
+	<div class="col-lg-6 col-lg-offset-3">
+		<div class="well">
+			<div class="container">
+				<div>
+					<h3>Bienvenido(a) al módulo de inscripción de cursos</h3>
 					<p>Escoge el curso que te interesa a continuación.</p>
+				</div>
 			</div>
 		</div>
-
-		<div></div>
 	</div>
-
-	<c:if test="${not empty message}">
-		<div class="message green">${message}</div>
-	</c:if>
-
 	<div class="col-lg-6 col-lg-offset-3">
 		<div class="well">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
 						<c:if test="${not empty message}">
-							<div class="message red">${message}</div>
+							<div class="message orange">${message}</div>
 						</c:if>
 						<form:form id="myForm" method="post"
-							class="bs-example form-horizontal" commandName="curso">
+							class="bs-example form-horizontal" commandName="course">
 							<fieldset>
 								<legend>Formulario de inscripción de cursos</legend>
 								<div class="form-group">
 									<div class="col-lg-9">
-										<select path="cursos">
+										<select name="cursoId">
 											<c:forEach items="${cursos}" var="curso">
-												<option value="${curso}">${curso.getNombre()},
+												<option value="${curso.getId()}">${curso.getNombre()},
 													${curso.getNivel()}</option>
 											</c:forEach>
 										</select>
-										<button class="btn btn-default">Cancel</button>
-
 										<button class="btn btn-primary" data-toggle="modal"
-											data-target="#themodal">Submit</button>
+											data-target="#themodal">Inscribir</button>
 										<div id="themodal" class="modal fade" data-backdrop="static">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal"
 															aria-hidden="true">&times;</button>
-														<h3>Addition Form Submission</h3>
+														<h5>Formulario de inscripción de cursos</h5>
 													</div>
 													<div class="modal-body">
 														<p>Estás seguro(a) de inscribir este curso?</p>
@@ -137,20 +134,16 @@
 														</div>
 													</div>
 													<div class="modal-footer">
-														<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-														<input type="submit" value="Yes" id="yesbutton"
-															class="btn btn-primary" data-loading-text="Saving.."
-															data-complete-text="Saved!">
+														<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+														<input type="submit" value="Sí!" id="yesbutton"
+															class="btn btn-primary" data-loading-text="Guardando.."
+															data-complete-text="Guardado!">
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-
-
 								</div>
-
-
 							</fieldset>
 						</form:form>
 					</div>

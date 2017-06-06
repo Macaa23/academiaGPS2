@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Main</title>
+	<title>Academia de artes Danza y Cultura</title>
 	<link href="assets/css/bootstrap-united.css" rel="stylesheet" />
 	<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
 	<style>
@@ -34,17 +34,17 @@
 	</div>
 
 	<div class="navbar-collapse collapse navbar-responsive-collapse">
-		<ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="#">Home</a></li>
+		<ul class="nav navbar-nav navbar-center">
+			<li class="active"><a href="#">Inicio</a></li>
 			<c:choose>
 				<c:when test="${curPostulante == null}">
-					<li><a href="signup.html">Signup</a></li>
-					<li><a href="login.html">Login</a></li>
+					<li><a href="signup.html">Registrarse</a></li>
+					<li><a href="login.html">Ingresar</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="students.html">Students</a></li>
-					<li><a href="addStudent.html">Add Student</a></li>
-					<li><a href="logout.html">Logout</a></li>
+					<!-- li><a href="students.html">Students</a></li-->
+					<li><a href="addInscripcion.html">Inscribir curso</a></li>
+					<li><a href="logout.html">Salir</a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>
@@ -56,21 +56,20 @@
 		<c:choose>
 			<c:when test="${curPostulante == null}">
 				<div>
-					<h1>Welcome to Online Web Academy!</h1>
-					<p>To get started, you need to enter your user name and the password for registration.
-						Or login to access your students, if you are already registered.</p>
+					<h3>Bienvenido al sistema de preinscripciones de nuestra academia</h3>
+					<p>Regístrate o ingresa al sitio para preinscribir cursos.</p>
 				</div>
-				<a class="btn btn-primary" href="signup.html">Signup >> </a>
-				<a class="btn btn-primary" href="login.html">Login >> </a>
+				<a class="btn btn-primary" href="signup.html">Registrarse >> </a>
+				<a class="btn btn-primary" href="login.html">Ingresar >> </a>
 			</c:when>
 			<c:otherwise>
 				<div>
-					<h1>Welcome to Online Web Academy!</h1>
-					<p>You have successfully passed a logination if you want to enter under other login, you have to log out</p>
+					<h3>Bienvenido al sistema de preinscripciones de nuestra academia</h3>
+					<p>Has iniciado sesión exitosamente.</p>
 				</div>
-				<a class="btn btn-primary" href="logout.html">Logout >> </a>
-				<a class="btn btn-primary" href="addStudent.html">Add student >> </a>
-				<a class="btn btn-primary" href="students.html">Students >> </a>
+				<a class="btn btn-primary" href="logout.html">Salir >> </a>
+				<a class="btn btn-primary" href="addInscripcion.html">Inscribir curso >> </a>
+				<!-- a class="btn btn-primary" href="students.html">Students >> </a-->
 			</c:otherwise>
 		</c:choose>
 	</div>

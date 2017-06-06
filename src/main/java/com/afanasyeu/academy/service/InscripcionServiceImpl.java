@@ -27,11 +27,6 @@ public class InscripcionServiceImpl implements InscripcionService {
 		inscripcionMapper.insertInscripcion(ins);
 		
 	}
-
-    /*@Transactional
-    public void insertCurso(Curso curso) {
-        cursoMapper.insertCurso(curso);
-    }*/
     
     
     public List<Curso> getCursosByPostulanteId(Long id) {
@@ -67,6 +62,12 @@ public class InscripcionServiceImpl implements InscripcionService {
 		}
 	}
 
+
+    /*@Transactional
+    public void insertCurso(Curso curso) {
+        cursoMapper.insertCurso(curso);
+    }*/
+
     /*
     @Transactional
     public void deleteCursoById(Long cursoId, Long postulanteId) {
@@ -81,7 +82,7 @@ public class InscripcionServiceImpl implements InscripcionService {
         }
         return false;
     }
-    */
+   
     
     
 
@@ -95,7 +96,7 @@ public class InscripcionServiceImpl implements InscripcionService {
 	public void deleteCursoById(Long cursoId, Long postulanteId) {
 		// TODO Auto-generated method stub
 		
-	}
+	} */
 
 
 	

@@ -4,13 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Registro</title>
+<title>Academia de artes Danza y Cultura</title>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
 <link href="datepicker/css/datepicker.css" rel="stylesheet" />
 <link href="assets/css/bootstrap-united.css" rel="stylesheet" />
@@ -36,16 +36,16 @@
 		</div>
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">Inicio</a></li>
+			<ul class="nav navbar-nav navbar-center">
+				<li><a href="logout.html">Inicio</a></li>
 				<c:choose>
 					<c:when test="${curPostulante == null}">
 						<li class="active"><a href="signup.html">Registrarse</a></li>
 						<li><a href="login.html">Ingresar</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="students.html">Students</a></li>
-						<li><a href="addStudent.html">Add Student</a></li>
+						<!-- li><a href="cursos.html">Cursos</a></li-->
+						<li><a href="addInscripcion.html">Inscribir curso</a></li>
 						<li><a href="logout.html">Salir</a></li>
 					</c:otherwise>
 				</c:choose>
@@ -66,16 +66,16 @@
 		
 	</script>
 
-
-	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h3>Bienvenido(a) al módulo de registro de postulantes</h3>
-				<p>Ingresa tus datos a continuación</p>
+	<div class="col-lg-6 col-lg-offset-3">
+		<div class="well">
+			<div class="container">
+					<div>
+						<h3>Bienvenido(a) al módulo de registro de postulantes</h3>
+						<p>Ingresa tus datos a continuación</p>
+					</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="col-lg-6 col-lg-offset-3">
 		<div class="well">
 			<div class="container">
