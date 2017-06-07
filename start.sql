@@ -53,6 +53,21 @@ insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBir
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('powerpuffbubble', 'BurbujaAzul', '188996553', 'pascal.ssolange@gmail.com', 'Pascal Villarroel Seguel', '1994/09/03', 'Femenino','85656232');
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('dipper03', 'Keycard67', '196552320', 'wendy87@gmail.com', 'Mabel Pino Ramirez', '1993/08/06', 'Femenino','95642153');
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('SolidSnake', 'GrayFox', '17556662', 'jvellastu@gmail.com', 'Jean Villalon Albornoz', '1992/02/20', 'Masculino','65856523');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('qwerty', 'pdSpark', '1075120200', 'ampr@gmail.com', 'Bart García Matos', '1996/03/12', 'Masculino','95846517');
+insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('12356', 'choroy', '153030014', '5612asd@gmail.com', 'Manlio Orozco Guardado', '1998/02/20', 'Masculino','45175184');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('zxcvb', 'msgoon', '184706016', 'prime@gmail.com', 'Laya Anaya Banda', '1996/03/12', 'Femenino','95471517');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('ztii88', 'BPM', '192066670', 'pREX@gmail.com', 'Lemuel Abreu Nava', '1989/03/12', 'Masculino','99995471');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('kjhg', 'ehne', '172905447', 'ehne@gmail.com', 'Emanuel Longoria Ferrer', '1956/04/20', 'Masculino','95117548');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('45635', 'rune', '98736182', 'rune@gmail.com', 'Ludwiq Espinoza Toro', '1989/04/20', 'Masculino','94571542');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('asfd1235', 'millia', '85982443', 'choii@gmail.com', 'Naiara Jiménez Pedroza', '1993/04/15', 'Femenino','12457899');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('795117', 'HP', '133850945', 'HPUMP@gmail.com', 'Antoinette Soria Oquendo', '1990/03/15', 'Femenino','98654712');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('sngi350as', 'hiddenparts', '100275848', 'HPasrts@gmail.com', 'Guillermina Arenas Malave', '1991/05/15', 'Femenino','11245715');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('snooping4as', 'robotnik', '133850945', 'IVOr@gmail.com', 'Alfeo Ayala Urbina', '1988/05/15', 'Masculino','99457618');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('adfb2455', 'sonic', '69387667', 'hedeg@gmail.com', 'Alfeo Ayala Urbina', '1970/04/23', 'Femenino','21517548');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('sadfn3434', 'tails', '79035963', 'miles@gmail.com', 'Tirso Tejeda Muñoz', '1970/04/23', 'Masculino','294146582');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('mammas24', 'mario', '161016292', 'spagett@gmail.com', 'Dagoberto Narváez Barreto', '1980/02/13', 'Masculino','51421679');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('pizag34', 'luigi', '4316767-7', 'gree@gmail.com', 'Armentario Salas Solano', '1970/05/14', 'Masculino','24712854');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('fhh4954', 'peach', '103861926', 'brella@gmail.com', 'Lucina Cortez Perea', '1990/03/23', 'Femenino','75694582');
 
 DROP TABLE IF EXISTS `inscripcion`;
 CREATE TABLE `inscripcion` (
