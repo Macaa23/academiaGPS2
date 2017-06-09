@@ -56,41 +56,4 @@ public class Curso {
 	public void setProfesorId(Long profesorId) {
 		this.profesorId = profesorId;
 	}
-/*
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Curso)) return false;
-
-        Curso student = (Curso) o;
-
-        if (!getFirstName().equals(student.getFirstName())) return false;
-        if (!getLastName().equals(student.getLastName())) return false;
-        if (!getEmailAddress().equals(student.getEmailAddress())) return false;
-        if (!(getDateOfBirth().toString()).equals(student.getDateOfBirth().toString())) return false;
-        return getPostulanteId().equals(student.getPostulanteId());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getFirstName().hashCode();
-        result = 31 * result + getLastName().hashCode();
-        result = 31 * result + getEmailAddress().hashCode();
-        result = 31 * result + getDateOfBirth().hashCode();
-        result = 31 * result + getPostulanteId().hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", postulanteId=" + postulanteId +
-                '}';
-    }
-    */
 }

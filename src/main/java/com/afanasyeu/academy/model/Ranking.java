@@ -1,7 +1,5 @@
 package com.afanasyeu.academy.model;
 
-import java.util.Comparator;
-
 public class Ranking{
 	private String Nombre;
 	private String Nivel;

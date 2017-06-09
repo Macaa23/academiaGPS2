@@ -25,8 +25,6 @@ public class InformesServiceImpl implements InformesService{
 	@Override
 	public List<Ranking> getRanking() {
 		List<Ranking> lista_ordenada = getRankingData();
-		//Collections.sort(lista_ordenada, Comparator.comparingInt(Ranking::getPosicion).reversed());
-		//Collections.sort(lista_ordenada, (p1, p2) -> p1.getPosicion() - p2.getPosicion());
 		Collections.sort(lista_ordenada, new OrdenRank().reversed());
 		return lista_ordenada;
 	}

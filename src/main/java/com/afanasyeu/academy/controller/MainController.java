@@ -1,7 +1,6 @@
 package com.afanasyeu.academy.controller;
 
 import com.afanasyeu.academy.model.Curso;
-import com.afanasyeu.academy.model.Inscripcion;
 import com.afanasyeu.academy.model.Postulante;
 import com.afanasyeu.academy.service.InformesService;
 import com.afanasyeu.academy.service.InscripcionService;
@@ -31,10 +30,6 @@ public class MainController {
 	@Autowired
 	@Qualifier("postulanteValidator")
 	private Validator postulanteValidator;
-
-	@Autowired
-	@Qualifier("studentValidator")
-	private Validator studentValidator;
 	
 	@Autowired
 	private InformesService informesService;
@@ -112,60 +107,12 @@ public class MainController {
 			model.addAttribute("message", "El curso ya está inscrito!");
 			return getCursos(model, httpSession);
 		}
-		model.addAttribute("message", "Curso inscrito!");
+		
 		inscripcionService.insertInscripcion(cursoId.longValue(), postulante.getId());
+		model.addAttribute("message", "Curso inscrito!    -    "+  inscripcionService.getEstadoInscripcion(cursoId.longValue()));
 		return getCursos(model, httpSession);
 	}
 	
-	/*@RequestMapping(value = {"/", "/adminIndex"}, method = RequestMethod.GET)
-    public String adminIndex(Model model) {
-    	return "adminIndex";
-
-    }*/
-
-	/*
-	 * @RequestMapping(value = "/cursos", method = RequestMethod.GET) public
-	 * String getCursosByPostulante(Model model, HttpSession httpSession) {
-	 * Postulante postulante = (Postulante)
-	 * httpSession.getAttribute("curPostulante"); if (postulante != null) {
-	 * model.addAttribute("curso",
-	 * cursoService.getCursosByPostulanteId(postulante.getId())); return
-	 * "cursos"; } else { return "redirect:login.html"; } }
-	 * 
-	 * @RequestMapping(value = "/students", method = RequestMethod.GET) public
-	 * String getStudentsByPostulante(Model model, HttpSession httpSession) {
-	 * Postulante postulante = (Postulante)
-	 * httpSession.getAttribute("curPostulante"); if (postulante != null) {
-	 * model.addAttribute("student",
-	 * studentService.getStudentsByPostulanteId(postulante.getId())); return
-	 * "students"; } else { return "redirect:login.html"; } }
-	 * 
-	 * @RequestMapping(value = "/students/{studentId}", method =
-	 * RequestMethod.GET) public String deleteStudentsByPostulante(@PathVariable
-	 * long studentId, HttpSession httpSession) { Postulante postulante =
-	 * (Postulante) httpSession.getAttribute("curPostulante");
-	 * studentService.deleteStudentById(studentId, postulante.getId()); return
-	 * "redirect:/students.html"; }
-	 * 
-	 * @RequestMapping(value = "/addStudent", method = RequestMethod.GET) public
-	 * String addStudent(Model model, HttpSession httpSession) { Postulante
-	 * curPostulante = (Postulante) httpSession.getAttribute("curPostulante");
-	 * if (curPostulante != null) { Student student = new Student();
-	 * model.addAttribute("student", student); return "addStudent"; } else {
-	 * return "login"; } }
-	 * 
-	 * @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-	 * public String addStudent(@ModelAttribute("student") Student student,
-	 * Model model, BindingResult result, HttpSession httpSession) { if
-	 * (studentService.getStudentByFNameLNameDBirth(student)) {
-	 * model.addAttribute("message", "Student already exist!"); return
-	 * "addStudent"; } studentValidator.validate(student, result); if
-	 * (result.hasErrors()){ return "addStudent"; } Postulante curPostulante =
-	 * (Postulante) httpSession.getAttribute("curPostulante");
-	 * student.setPostulanteId(curPostulante.getId());
-	 * studentService.insertStudent(student); return "redirect:/students.html";
-	 * }
-	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession) {
 		httpSession.invalidate();

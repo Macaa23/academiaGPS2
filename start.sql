@@ -46,6 +46,7 @@ CREATE TABLE `postulante` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
+
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('asdf', 'CoffeeBean', '165740173', 'coffee@gmail.com', 'Adrian Parra Riveros', '1995/04/30', 'Masculino','123667554');
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('mxd', 'SendPKS', '185556552', 'gms@gmail.com', 'Gustavo Bolivar Molina', '1995/05/30', 'Masculino','55662233');
 insert into postulante (password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) values ('ironviking', 'Ragnar', '1900160013', 'nordicasgard@gmail.com', 'Erick Hackon Fernandez', '1997/10/02', 'Masculino','98456523');
@@ -62,7 +63,7 @@ INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirt
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('asfd1235', 'millia', '85982443', 'choii@gmail.com', 'Naiara Jiménez Pedroza', '1993/04/15', 'Femenino','12457899');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('795117', 'HP', '133850945', 'HPUMP@gmail.com', 'Antoinette Soria Oquendo', '1990/03/15', 'Femenino','98654712');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('sngi350as', 'hiddenparts', '100275848', 'HPasrts@gmail.com', 'Guillermina Arenas Malave', '1991/05/15', 'Femenino','11245715');
-INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('snooping4as', 'robotnik', '133850945', 'IVOr@gmail.com', 'Alfeo Ayala Urbina', '1988/05/15', 'Masculino','99457618');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('snooping4as', 'robotnik', '50403475', 'IVOr@gmail.com', 'Alfeo Ayala Urbina', '1988/05/15', 'Masculino','99457618');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('adfb2455', 'sonic', '69387667', 'hedeg@gmail.com', 'Alfeo Ayala Urbina', '1970/04/23', 'Femenino','21517548');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('sadfn3434', 'tails', '79035963', 'miles@gmail.com', 'Tirso Tejeda Muñoz', '1970/04/23', 'Masculino','294146582');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('mammas24', 'mario', '161016292', 'spagett@gmail.com', 'Dagoberto Narváez Barreto', '1980/02/13', 'Masculino','51421679');
@@ -86,7 +87,7 @@ insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,9);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,10);
 
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,7);
+/*insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,7);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,8);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,9);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,10);
@@ -104,7 +105,7 @@ insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,7);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,8);
 insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,10);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,10);*/
 
 CREATE VIEW ranking AS
 SELECT curso.Nombre, curso.Nivel, curso.Cupo, count(inscripcion.id) as Inscritos_totales 

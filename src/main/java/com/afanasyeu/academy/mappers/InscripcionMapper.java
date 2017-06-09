@@ -11,13 +11,6 @@ import java.util.List;
 
 @Repository
 public interface InscripcionMapper {
-    /*@Insert("INSERT INTO student(firstName,"
-            + "lastName, dateOfBirth, emailAddress , postulante_id) VALUES"
-            + "(#{firstName}, #{lastName},"
-            + "#{dateOfBirth}, #{emailAddress}, #{postulanteId})")
-    @Options(useGeneratedKeys=true, keyProperty="id", flushCache=true, keyColumn="id")
-    void insertStudent(Student student);
-	*/
 	
     @Select("SELECT * FROM student WHERE postulante_id = #{id}")
     @Results(value={
@@ -31,7 +24,7 @@ public interface InscripcionMapper {
     @Select("SELECT CUPO as Cupo FROM curso WHERE id = #{id}")
     Integer getCupoCurso(Long id);
     
-    @Select("SELECT COUNT(id) as CANTIDAD FROM curso WHERE id = #{id}")
+    @Select("SELECT COUNT(id) as CANTIDAD FROM inscripcion WHERE course_id = #{id}")
     Integer getNumeroInscritos(Long id);
     
     
@@ -47,14 +40,4 @@ public interface InscripcionMapper {
 @Options(useGeneratedKeys=true, keyProperty="id", flushCache=true, keyColumn="id")
 	void insertInscripcion(Inscripcion ins);
 
-    /*
-    @Select("SELECT FIRSTNAME as firstName, LASTNAME as lastName, "
-            + "DATEOFBIRTH as dateOfBirth, EMAILADDRESS as emailAddress "
-            + "FROM student WHERE firstName = #{firstName} AND lastName = #{lastName} " +
-            "AND dateOfBirth = #{dateOfBirth}")
-    @Results(value={
-            @Result(property="postulanteId", column ="postulante_id" )
-    })
-    Student getStudentByFNameLNameDBirth(Student checkStudent);
-    */
 }

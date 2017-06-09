@@ -25,7 +25,6 @@ public class InscripcionServiceImpl implements InscripcionService {
 		String Estado = getEstadoInscripcion(course_id);
 		Inscripcion ins = new Inscripcion(fecha, Estado, postulante_id, course_id );
 		inscripcionMapper.insertInscripcion(ins);
-		
 	}
     
     
@@ -52,7 +51,6 @@ public class InscripcionServiceImpl implements InscripcionService {
     
    
 	public String getEstadoInscripcion(Long id) {
-    	
 		int inscritos = inscripcionMapper.getNumeroInscritos(id);
 		int cupo = inscripcionMapper.getCupoCurso(id);
 		if(inscritos >= cupo){
@@ -62,42 +60,4 @@ public class InscripcionServiceImpl implements InscripcionService {
 		}
 	}
 
-
-    /*@Transactional
-    public void insertCurso(Curso curso) {
-        cursoMapper.insertCurso(curso);
-    }*/
-
-    /*
-    @Transactional
-    public void deleteCursoById(Long cursoId, Long postulanteId) {
-        cursoMapper.deleteCursoById(cursoId, postulanteId);
-    }
-    
-
-    public boolean getCursoByFNameLNameDBirth(Curso checkCurso) {
-        Curso curso = cursoMapper.getCursoByFNameLNameDBirth(checkCurso);
-        if(curso != null) {
-            return true;
-        }
-        return false;
-    }
-   
-    
-    
-
-	@Override
-	public void insertCurso(Curso curso) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteCursoById(Long cursoId, Long postulanteId) {
-		// TODO Auto-generated method stub
-		
-	} */
-
-
-	
 }
