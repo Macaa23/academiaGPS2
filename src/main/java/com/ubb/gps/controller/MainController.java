@@ -1,5 +1,5 @@
 package com.ubb.gps.controller;
-
+/*prueba*/
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Postulante;
 import com.ubb.gps.service.InformesService;
