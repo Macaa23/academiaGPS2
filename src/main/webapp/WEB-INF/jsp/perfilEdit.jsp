@@ -133,65 +133,92 @@
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-<c:if test="${not empty message}">
-							<div class="message orange">${message}</div>
-						</c:if>
+				<!--form action="/action_page.php">
+					First name: <input type="text" name="fname"><br> Last
+					name: <input type="text" name="lname"><br> <input
+						type="submit" value="Submit">
+				</form-->
 
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">${postulante.getNombre()}</h3>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-3 col-lg-3 " align="center">
-								<img alt="User Pic"
-									src="http://www.free-icons-download.net/images/dancer-icon-70489.png"
-									class="img-circle img-responsive">
-							</div>
-							<div class=" col-md-9 col-lg-9 ">
-								<table class="table table-user-information">
-									<tbody>
-										<tr>
-											<td>Nombre de usuario:</td>
-											<td>${postulante.getUserName()}</td>
-										</tr>
-										<tr>
-											<td>RUT:</td>
-											<td>${postulante.getRUT()}</td>
-										</tr>
-										<tr>
-											<td>Correo</td>
-											<td>${postulante.getEmailAddress()}</td>
-										</tr>
+				<form:form id="myForm" method="post"
+					class="bs-example form-horizontal" commandName="postulantePerfil">
 
-										<tr>
-										<tr>
-											<td>Fecha de nacimiento</td>
-											<td>${postulante.getDateOfBirth().toString()}</td>
-										</tr>
-										<tr>
-											<td>Género</td>
-											<td>${postulante.getGenero()}</td>
-										</tr>
-										<tr>
-											<td>Teléfono</td>
-											<td>${postulante.getTelefono()}</td>
-										</tr>
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">${postulante.getNombre()}</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-3 col-lg-3 " align="center">
+									<img alt="User Pic"
+										src="http://www.free-icons-download.net/images/dancer-icon-70489.png"
+										class="img-circle img-responsive">
+								</div>
+								<div class=" col-md-9 col-lg-9 ">
+									<table class="table table-user-information">
+										<tbody>
+											<tr>
+												<td>Nombre de usuario:</td>
+												<td>${postulante.getUserName()}</td>
+											</tr>
+											<tr>
+												<td>RUT:</td>
+												<td>${postulante.getRUT()}</td>
+											</tr>
+											<tr>
+												<td>Correo</td>
+												<td><input type="text" name="email"></td>
+											</tr>
 
-									</tbody>
-								</table>
+											<tr>
+											<tr>
+												<td>Fecha de nacimiento</td>
+												<td>${postulante.getDateOfBirth().toString()}</td>
+											</tr>
+											<tr>
+												<td>Género</td>
+												<td>${postulante.getGenero()}</td>
+											</tr>
+											<tr>
+												<td>Teléfono</td>
+												<td><input type="text" name="phone"></td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="panel-footer">
-							
-							<a href="perfilEdit.html"
-							data-original-title="Editar perfil" data-toggle="tooltip"
-							type="button" class="btn btn-sm btn-warning"><i
-								class="glyphicon glyphicon-edit"></i></a>
-					</div>
+						
+						<div class="panel-footer">
+							<button class="btn btn-primary" data-toggle="modal"
+							data-target="#themodal">Actualizar</button>
+						<div id="themodal" class="modal fade" data-backdrop="static">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h5>Editar perfil</h5>
+									</div>
+									<div class="modal-body">
+										<p>Estás seguro(a) los cambios?</p>
+										<div class="progress progress-striped active">
+											<div id="doitprogress" class="progress-bar"></div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+										<input type="submit" value="Sí!" id="yesbutton"
+											class="btn btn-primary" data-loading-text="Guardando.."
+											data-complete-text="Guardado!">
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
 
-				</div>
+					</div>
+				</form:form>
 			</div>
 		</div>
 	</div>
@@ -230,13 +257,29 @@
 									});
 
 							$('[data-toggle="tooltip"]').tooltip();
-
-							$('button').click(function(e) {
-								e.preventDefault();
-								alert("This is a demo.\n :-)");
-							});
 						});
 	</script>
+	<script>
+		$(function() {
+			var yesButton = $("#yesbutton");
+			var progress = $("#doitprogress");
 
+			yesButton.click(function() {
+				yesButton.button("loading");
+
+				var counter = 0;
+				var countDown = function() {
+					counter++;
+					if (counter == 11) {
+						yesButton.button("complete");
+					} else {
+						progress.width(counter * 10 + "%");
+						setTimeout(countDown, 100);
+					}
+				};
+				setTimeout(countDown, 100);
+			});
+		});
+	</script>
 </body>
 </html>

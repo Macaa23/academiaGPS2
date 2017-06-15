@@ -132,18 +132,31 @@ public class MainController {
 		}
 	}
 	
-	@RequestMapping(value = "/perfil", method = RequestMethod.POST)
-	public String modifyPerfil(@RequestParam(value = "cursoId") Integer cursoId, @ModelAttribute("course") Curso curso,
+	@RequestMapping(value = "/perfilEdit", method = RequestMethod.GET)
+	public String getPerfilEdit(Model model, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		if (postulante != null) {
+			model.addAttribute("postulante", postulante);
+			return "perfilEdit";
+		} else {
+			return "redirect:login.html";
+		}
+	}
+	
+	@RequestMapping(value = "/perfilEdit", method = RequestMethod.POST)
+	public String updatePerfil(@RequestParam(value = "email") String email, @RequestParam(value = "phone") String phone, @ModelAttribute("postulantePerfil") Postulante postulant,
 			Model model, BindingResult result, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
-		if (inscripcionService.getCursoInscrito(cursoId.longValue(), postulante.getId())) {
+		//usar validador
+		/*if (inscripcionService.getCursoInscrito(cursoId.longValue(), postulante.getId())) {
 			model.addAttribute("message", "El curso ya está inscrito!");
 			return getCursos(model, httpSession);
-		}
+		}*/
 		
-		inscripcionService.insertInscripcion(cursoId.longValue(), postulante.getId());
-		model.addAttribute("message", "Curso inscrito!    -    "+  inscripcionService.getEstadoInscripcion(cursoId.longValue()));
-		return getCursos(model, httpSession);
+		postulanteService.updatePostulante(postulante);
+		model.addAttribute("message", "Perfil actualizado.");
+		return getPerfil(model, httpSession);
 	}
+	
 
 }

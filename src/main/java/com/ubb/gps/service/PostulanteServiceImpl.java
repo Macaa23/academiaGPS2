@@ -44,4 +44,10 @@ public class PostulanteServiceImpl implements PostulanteService {
 		return false;
 	}
 
+	@Override
+	public void updatePostulante(Postulante postulante) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
