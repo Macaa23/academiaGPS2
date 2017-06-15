@@ -124,7 +124,6 @@ public class MainController {
 	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
 	public String getPerfil(Model model, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
-		// model.addAttribute("message", null);
 		if (postulante != null) {
 			model.addAttribute("postulante", postulante);
 			return "perfil";
