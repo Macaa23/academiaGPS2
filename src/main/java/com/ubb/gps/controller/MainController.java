@@ -1,10 +1,11 @@
-package com.afanasyeu.academy.controller;
+package com.ubb.gps.controller;
 
-import com.afanasyeu.academy.model.Curso;
-import com.afanasyeu.academy.model.Postulante;
-import com.afanasyeu.academy.service.InformesService;
-import com.afanasyeu.academy.service.InscripcionService;
-import com.afanasyeu.academy.service.PostulanteService;
+import com.ubb.gps.model.Curso;
+import com.ubb.gps.model.Postulante;
+import com.ubb.gps.service.InformesService;
+import com.ubb.gps.service.InscripcionService;
+import com.ubb.gps.service.PostulanteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -117,6 +118,33 @@ public class MainController {
 	public String logout(HttpSession httpSession) {
 		httpSession.invalidate();
 		return "redirect:/";
+	}
+	
+	//PERFIL
+	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
+	public String getPerfil(Model model, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		// model.addAttribute("message", null);
+		if (postulante != null) {
+			model.addAttribute("postulante", postulante);
+			return "perfil";
+		} else {
+			return "redirect:login.html";
+		}
+	}
+	
+	@RequestMapping(value = "/perfil", method = RequestMethod.POST)
+	public String modifyPerfil(@RequestParam(value = "cursoId") Integer cursoId, @ModelAttribute("course") Curso curso,
+			Model model, BindingResult result, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		if (inscripcionService.getCursoInscrito(cursoId.longValue(), postulante.getId())) {
+			model.addAttribute("message", "El curso ya está inscrito!");
+			return getCursos(model, httpSession);
+		}
+		
+		inscripcionService.insertInscripcion(cursoId.longValue(), postulante.getId());
+		model.addAttribute("message", "Curso inscrito!    -    "+  inscripcionService.getEstadoInscripcion(cursoId.longValue()));
+		return getCursos(model, httpSession);
 	}
 
 }

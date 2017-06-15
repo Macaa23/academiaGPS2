@@ -1,7 +1,8 @@
-package com.afanasyeu.academy.service.validators;
+package com.ubb.gps.service.validators;
 
-import com.afanasyeu.academy.model.Postulante;
-import com.afanasyeu.academy.service.PostulanteService;
+import com.ubb.gps.model.Postulante;
+import com.ubb.gps.service.PostulanteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;

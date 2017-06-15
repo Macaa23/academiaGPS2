@@ -62,6 +62,7 @@
 						<!--li><a href="students.html">Students</a></li-->
 						<li class="active"><a href="addInscripcion.html">Inscribir
 								Curso</a></li>
+						<li><a href="perfil.html">Perfil</a></li>
 						<li><a href="logout.html">Salir</a></li>
 					</c:otherwise>
 				</c:choose>

@@ -1,4 +1,4 @@
-package com.afanasyeu.academy.model;
+package com.ubb.gps.model;
 
 
 public class Curso {

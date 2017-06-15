@@ -1,6 +1,7 @@
-package com.afanasyeu.academy.service;
+package com.ubb.gps.service;
 
-import com.afanasyeu.academy.model.Postulante;
+
+import com.ubb.gps.model.Postulante;
 
 public interface PostulanteService {
 	void insertPostulante(Postulante postulante);

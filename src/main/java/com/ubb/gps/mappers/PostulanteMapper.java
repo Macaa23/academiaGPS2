@@ -1,10 +1,11 @@
-package com.afanasyeu.academy.mappers;
+package com.ubb.gps.mappers;
 
-import com.afanasyeu.academy.model.Postulante;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import org.springframework.stereotype.Repository;
+
+import com.ubb.gps.model.Postulante;
 
 @Repository
 public interface PostulanteMapper {

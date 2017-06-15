@@ -5346,9 +5346,9 @@ a.thumbnail.active {
 }
 
 .alert-info {
-  color: #3a87ad;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #dd4814;
+  background-color: #dd4814;
+  border-color: #dd4814;
 }
 
 .alert-info hr {
@@ -5899,25 +5899,25 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-info {
-  border-color: #bce8f1;
+  border-color: #dd4814;
 }
 
 .panel-info > .panel-heading {
-  color: #3a87ad;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #dd4814;
+  background-color: #dd4814;
+  border-color: #dd4814;
 }
 
 .panel-info > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #bce8f1;
+  border-top-color: #dd4814;
 }
 
 .panel-info > .panel-heading > .dropdown .caret {
-  border-color: #3a87ad transparent;
+  border-color: #dd4814 transparent;
 }
 
 .panel-info > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #bce8f1;
+  border-bottom-color: #dd4814;
 }
 
 .well {

@@ -1,4 +1,4 @@
-package com.afanasyeu.academy.service;
+package com.ubb.gps.service;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.afanasyeu.academy.mappers.AdminMapper;
-import com.afanasyeu.academy.model.Ranking;
+import com.ubb.gps.mappers.AdminMapper;
+import com.ubb.gps.model.Ranking;
 
 @Service("informesService")
 public class InformesServiceImpl implements InformesService{

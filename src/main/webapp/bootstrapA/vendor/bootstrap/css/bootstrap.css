@@ -2162,7 +2162,7 @@ pre code {
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #d9edf7;
+  background-color: #dd4814;
 }
 
 .table-hover .table-info:hover {
@@ -4986,7 +4986,7 @@ a.badge:focus, a.badge:hover {
 }
 
 .alert-info {
-  background-color: #d9edf7;
+  background-color: #dd4814;
   border-color: #bcdff1;
   color: #31708f;
 }
@@ -5250,7 +5250,7 @@ button.list-group-item-success.active {
 
 .list-group-item-info {
   color: #31708f;
-  background-color: #d9edf7;
+  background-color: #dd4814;
 }
 
 a.list-group-item-info,

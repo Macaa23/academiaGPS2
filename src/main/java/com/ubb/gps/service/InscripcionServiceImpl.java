@@ -1,9 +1,9 @@
-package com.afanasyeu.academy.service;
+package com.ubb.gps.service;
 
 
-import com.afanasyeu.academy.mappers.InscripcionMapper;
-import com.afanasyeu.academy.model.Curso;
-import com.afanasyeu.academy.model.Inscripcion;
+import com.ubb.gps.mappers.InscripcionMapper;
+import com.ubb.gps.model.Curso;
+import com.ubb.gps.model.Inscripcion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

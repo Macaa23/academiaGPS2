@@ -1,9 +1,9 @@
-package com.afanasyeu.academy.service;
-
-import com.afanasyeu.academy.model.Curso;
-import com.afanasyeu.academy.model.Postulante;
+package com.ubb.gps.service;
 
 import java.util.List;
+
+import com.ubb.gps.model.Curso;
+import com.ubb.gps.model.Postulante;
 
 public interface InscripcionService {
 	

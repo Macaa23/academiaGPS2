@@ -15,7 +15,7 @@
 
 <mvc:annotation-driven />
 
-<context:component-scan base-package="com.afanasyeu.academy" />
+<context:component-scan base-package="com.ubb.gps" />
 
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/jsp/" />
@@ -31,7 +31,7 @@
 
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource" />
-	<property name="typeAliasesPackage" value="com.afanasyeu.academy.model"/>
+	<property name="typeAliasesPackage" value="com.ubb.gps.model"/>
 </bean>
 
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
@@ -39,7 +39,7 @@
 </bean>
 
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	<property name="basePackage" value="com.afanasyeu.academy.mappers" />
+	<property name="basePackage" value="com.ubb.gps.mappers" />
 </bean>
 
 <tx:annotation-driven transaction-manager="transactionManager" />
@@ -54,5 +54,5 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <bean id="registrationValidator" class="com.afanasyeu.academy.service.validators.PostulanteValidator"/>
+    <bean id="registrationValidator" class="com.ubb.gps.service.validators.PostulanteValidator"/>
 </beans>

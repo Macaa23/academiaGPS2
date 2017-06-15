@@ -1,11 +1,11 @@
-package com.afanasyeu.academy.mappers;
-
-import com.afanasyeu.academy.model.Curso;
-import com.afanasyeu.academy.model.Inscripcion;
-import com.afanasyeu.academy.model.Postulante;
+package com.ubb.gps.mappers;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import com.ubb.gps.model.Curso;
+import com.ubb.gps.model.Inscripcion;
+import com.ubb.gps.model.Postulante;
 
 import java.util.List;
 

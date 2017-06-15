@@ -33,6 +33,20 @@
 
 </head>
 
+<style>
+.thead {
+  float: left;   
+}
+
+.thead th {
+  display: block;   
+}
+
+.tbody {
+  float: right;   
+}
+
+</style>
 <body id="page-top">
 
 	<!-- Navigation -->

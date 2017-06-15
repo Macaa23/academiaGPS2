@@ -1,7 +1,10 @@
-package com.afanasyeu.academy.service;
+package com.ubb.gps.service;
 
-import com.afanasyeu.academy.mappers.PostulanteMapper;
-import com.afanasyeu.academy.model.Postulante;
+import com.ubb.gps.mappers.PostulanteMapper;
+import com.ubb.gps.model.Postulante;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,4 +43,5 @@ public class PostulanteServiceImpl implements PostulanteService {
 		}
 		return false;
 	}
+
 }
