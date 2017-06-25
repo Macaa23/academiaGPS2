@@ -3,8 +3,6 @@ package com.ubb.gps.service;
 import com.ubb.gps.mappers.PostulanteMapper;
 import com.ubb.gps.model.Postulante;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,9 +43,8 @@ public class PostulanteServiceImpl implements PostulanteService {
 	}
 
 	@Override
-	public void updatePostulante(String email, String phone) {
-		// TODO Auto-generated method stub
-		
+	public void updatePostulante(String RUT, String emailAddress, String telefono) {
+		postulanteMapper.updatePostulante(RUT, emailAddress, telefono);
 	}
 
 }

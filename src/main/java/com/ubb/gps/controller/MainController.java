@@ -33,11 +33,11 @@ public class MainController {
 	@Autowired
 	@Qualifier("postulanteValidator")
 	private Validator postulanteValidator;
-	
+
 	@Autowired
 	@Qualifier("postulanteUpdateValidator")
 	private Validator postulanteUpdateValidator;
-	
+
 	@Autowired
 	private InformesService informesService;
 
@@ -46,7 +46,6 @@ public class MainController {
 		model.addAttribute("ranks", informesService.getRanking());
 		return "adminIndex";
 	}
-
 
 	// SIGNUP
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -114,19 +113,20 @@ public class MainController {
 			model.addAttribute("message", "El curso ya está inscrito!");
 			return getCursos(model, httpSession);
 		}
-		
+
 		inscripcionService.insertInscripcion(cursoId.longValue(), postulante.getId());
-		model.addAttribute("message", "Curso inscrito!    -    "+  inscripcionService.getEstadoInscripcion(cursoId.longValue()));
+		model.addAttribute("message",
+				"Curso inscrito!    -    " + inscripcionService.getEstadoInscripcion(cursoId.longValue()));
 		return getCursos(model, httpSession);
 	}
-	
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession) {
 		httpSession.invalidate();
 		return "redirect:/";
 	}
-	
-	//PERFIL
+
+	// PERFIL
 	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
 	public String getPerfil(Model model, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
@@ -137,7 +137,7 @@ public class MainController {
 			return "redirect:login.html";
 		}
 	}
-	
+
 	@RequestMapping(value = "/perfilEdit", method = RequestMethod.GET)
 	public String getPerfilEdit(Model model, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
@@ -148,31 +148,36 @@ public class MainController {
 			return "redirect:login.html";
 		}
 	}
-	
+
 	@RequestMapping(value = "/perfilEdit", method = RequestMethod.POST)
-	public String updatePerfil(@RequestParam(value = "emailAddress") String email, @RequestParam(value = "telefono") String phone, @ModelAttribute("postulantePerfil") Postulante postulant,
+	public String updatePerfil(@RequestParam(value = "emailAddress") String emailAddress,
+			@RequestParam(value = "telefono") String telefono, @ModelAttribute("postulantePerfil") Postulante postulant,
 			Model model, BindingResult result, HttpSession httpSession) {
-		
+
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
-		
+
 		if (postulante != null) {
-			postulanteUpdateValidator.validate(email, result);
+			postulanteUpdateValidator.validate(emailAddress, result);
 			if (result.hasErrors()) {
-				/*result.getAllErrors();
-				try{
-				    PrintWriter writer = new PrintWriter("errorsitos.txt", "UTF-8");
-				    for (int i = 0; i < result.getAllErrors().size(); i++) {
-				    	writer.println(result.getAllErrors().toString());
-					}
-				    writer.close();
-				} catch (IOException e) {
-				   // do something
-				}*/
+				/*
+				 * result.getAllErrors(); try{ PrintWriter writer = new
+				 * PrintWriter("errorsitos.txt", "UTF-8"); for (int i = 0; i <
+				 * result.getAllErrors().size(); i++) {
+				 * writer.println(result.getAllErrors().toString()); }
+				 * writer.close(); } catch (IOException e) { // do something }
+				 */
 				return "perfilEdit";
 			}
-			postulanteService.updatePostulante(email, phone);
-			model.addAttribute("message", "Perfil actualizado.");
-			return getPerfil(model, httpSession);
+			postulanteService.updatePostulante(postulante.getRUT(), emailAddress, telefono);
+			Postulante curPostulante = postulanteService.getPostulanteByLogin(postulante.getUserName(),
+					postulante.getPassword());
+			if (curPostulante != null) {
+				httpSession.setAttribute("curPostulante", curPostulante);
+				model.addAttribute("message", "Perfil actualizado.");
+				return getPerfil(model, httpSession);
+			} else {
+				return "redirect:login.html";
+			}
 		} else {
 			return "redirect:login.html";
 		}
