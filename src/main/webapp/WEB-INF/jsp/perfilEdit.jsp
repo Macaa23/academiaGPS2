@@ -166,7 +166,10 @@
 											</tr>
 											<tr>
 												<td>Correo</td>
-												<td><input type="text" name="email"></td>
+													<td><input type="email" class="form-control"
+														path="emailAddress" name="emailAddress" id="emailAddressInput"
+														placeholder="Correo electrónico"></td>
+													<form:errors path="emailAddress" cssClass="error" />
 											</tr>
 
 											<tr>
@@ -180,7 +183,9 @@
 											</tr>
 											<tr>
 												<td>Teléfono</td>
-												<td><input type="text" name="phone"></td>
+												<td><input type="text" class="form-control" name="telefono" path="telefono"
+											id="telefonoInput" placeholder="Teléfono"></td>
+													<form:errors path="emailAddress" cssClass="error" />
 											</tr>
 
 										</tbody>
@@ -188,33 +193,33 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="panel-footer">
 							<button class="btn btn-primary" data-toggle="modal"
-							data-target="#themodal">Actualizar</button>
-						<div id="themodal" class="modal fade" data-backdrop="static">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"
-											aria-hidden="true">&times;</button>
-										<h5>Editar perfil</h5>
-									</div>
-									<div class="modal-body">
-										<p>Estás seguro(a) los cambios?</p>
-										<div class="progress progress-striped active">
-											<div id="doitprogress" class="progress-bar"></div>
+								data-target="#themodal">Actualizar</button>
+							<div id="themodal" class="modal fade" data-backdrop="static">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true">&times;</button>
+											<h5>Editar perfil</h5>
 										</div>
-									</div>
-									<div class="modal-footer">
-										<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
-										<input type="submit" value="Sí!" id="yesbutton"
-											class="btn btn-primary" data-loading-text="Guardando.."
-											data-complete-text="Guardado!">
+										<div class="modal-body">
+											<p>Estás seguro(a) los cambios?</p>
+											<div class="progress progress-striped active">
+												<div id="doitprogress" class="progress-bar"></div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+											<input type="submit" value="Sí!" id="yesbutton"
+												class="btn btn-primary" data-loading-text="Guardando.."
+												data-complete-text="Guardado!">
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						</div>
 
 					</div>

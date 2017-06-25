@@ -1,5 +1,5 @@
 package com.ubb.gps.controller;
-/*prueba 2*/
+
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Postulante;
 import com.ubb.gps.service.InformesService;
@@ -14,6 +14,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -31,6 +33,10 @@ public class MainController {
 	@Autowired
 	@Qualifier("postulanteValidator")
 	private Validator postulanteValidator;
+	
+	@Autowired
+	@Qualifier("postulanteUpdateValidator")
+	private Validator postulanteUpdateValidator;
 	
 	@Autowired
 	private InformesService informesService;
@@ -144,19 +150,31 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/perfilEdit", method = RequestMethod.POST)
-	public String updatePerfil(@RequestParam(value = "email") String email, @RequestParam(value = "phone") String phone, @ModelAttribute("postulantePerfil") Postulante postulant,
+	public String updatePerfil(@RequestParam(value = "emailAddress") String email, @RequestParam(value = "telefono") String phone, @ModelAttribute("postulantePerfil") Postulante postulant,
 			Model model, BindingResult result, HttpSession httpSession) {
-		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
-		//usar validador
-		/*if (inscripcionService.getCursoInscrito(cursoId.longValue(), postulante.getId())) {
-			model.addAttribute("message", "El curso ya está inscrito!");
-			return getCursos(model, httpSession);
-		}*/
 		
-		postulanteService.updatePostulante(postulante);
-		model.addAttribute("message", "Perfil actualizado.");
-		return getPerfil(model, httpSession);
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		
+		if (postulante != null) {
+			postulanteUpdateValidator.validate(email, result);
+			if (result.hasErrors()) {
+				/*result.getAllErrors();
+				try{
+				    PrintWriter writer = new PrintWriter("errorsitos.txt", "UTF-8");
+				    for (int i = 0; i < result.getAllErrors().size(); i++) {
+				    	writer.println(result.getAllErrors().toString());
+					}
+				    writer.close();
+				} catch (IOException e) {
+				   // do something
+				}*/
+				return "perfilEdit";
+			}
+			postulanteService.updatePostulante(email, phone);
+			model.addAttribute("message", "Perfil actualizado.");
+			return getPerfil(model, httpSession);
+		} else {
+			return "redirect:login.html";
+		}
 	}
-	
-
 }

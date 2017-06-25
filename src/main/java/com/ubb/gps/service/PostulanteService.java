@@ -8,5 +8,5 @@ public interface PostulanteService {
 	Postulante getPostulanteByLogin(String userName, String password);
 	boolean getPostulanteByUserName(String userName);
 	boolean getPostulanteByRUT(String RUT);
-	void updatePostulante(Postulante postulante);
+	void updatePostulante(String email, String phone);
 }

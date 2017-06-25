@@ -45,7 +45,7 @@ public class PostulanteServiceImpl implements PostulanteService {
 	}
 
 	@Override
-	public void updatePostulante(Postulante postulante) {
+	public void updatePostulante(String email, String phone) {
 		// TODO Auto-generated method stub
 		
 	}
