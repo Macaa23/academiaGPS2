@@ -75,7 +75,7 @@ public class MainController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("postulanteLogin") Postulante postulante, BindingResult result,
-			HttpSession httpSession) {
+			HttpSession httpSession, Model model) {
 		if (postulante.getUserName().equals("ac.admin") && postulante.getPassword().equals("danza123")) {
 			return "redirect:/adminIndex.html";
 		} else {
@@ -85,7 +85,8 @@ public class MainController {
 				httpSession.setAttribute("curPostulante", curPostulante);
 				return "redirect:addInscripcion.html";
 			} else {
-				return "redirect:/";
+				model.addAttribute("message", "Nombre de usuario o contraseña incorrectos");
+				return login(model);
 			}
 		}
 

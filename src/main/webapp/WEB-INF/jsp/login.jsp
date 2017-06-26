@@ -24,6 +24,11 @@
 	padding: 8px;
 	margin: 16px;
 }
+
+.red {
+	font-weight: bold;
+	color: red;
+}
 </style>
 <title>Academia de artes Danza y Cultura</title>
 </head>
@@ -80,17 +85,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
+
 						<form:form id="myForm" method="post"
 							class="bs-example form-horizontal" commandName="postulanteLogin">
 							<fieldset>
 								<legend>Inicia sesión con tus datos</legend>
-
+								<c:if test="${not empty message}">
+									<div class="message red">${message}</div>
+								</c:if>
 								<div class="form-group">
 									<label for="userNameInput" class="col-lg-3 control-label">Nombre
 										de usuario</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="Nombre de usuario" required="required" />
+											id="userNameInput" placeholder="Nombre de usuario"
+											required="required" />
 										<form:errors path="userName" cssClass="error" />
 									</div>
 								</div>
@@ -100,7 +109,8 @@
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
 											path="password" id="passwordInput" placeholder="Contraseña" />
-										<form:errors path="password" cssClass="error" required="required" />
+										<form:errors path="password" cssClass="error"
+											required="required" />
 									</div>
 								</div>
 
