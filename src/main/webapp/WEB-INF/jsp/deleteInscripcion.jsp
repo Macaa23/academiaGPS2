@@ -60,9 +60,9 @@
 					</c:when>
 					<c:otherwise>
 						<!--li><a href="students.html">Students</a></li-->
-						<li class="active"><a href="addInscripcion.html">Inscribir
-								Curso</a></li>
-						<li><a href="deleteInscripcion.html">Eliminar Inscripcion</a></li>
+						<li><a href="addInscripcion.html">Inscribir Curso</a></li>
+						<li class="active"><a href="deleteInscripcion.html">Eliminar
+								Inscripcion</a></li>
 						<li><a href="perfil.html">Perfil</a></li>
 						<li><a href="logout.html">Salir</a></li>
 					</c:otherwise>
@@ -93,8 +93,8 @@
 		<div class="well">
 			<div class="container">
 				<div>
-					<h3>Bienvenido(a) al módulo de inscripción de cursos</h3>
-					<p>Escoge el curso que te interesa a continuación.</p>
+					<h3>Bienvenido(a) al módulo de eliminación de inscripción</h3>
+					<p>Escoge el curso que deseas desinscribir a continuación.</p>
 				</div>
 			</div>
 		</div>
@@ -110,7 +110,7 @@
 						<form:form id="myForm" method="post"
 							class="bs-example form-horizontal" commandName="course">
 							<fieldset>
-								<legend>Formulario de inscripción de cursos</legend>
+								<legend>Formulario de eliminación de inscripción</legend>
 								<div class="form-group">
 									<div class="col-lg-9">
 										<select name="cursoId">
@@ -120,17 +120,17 @@
 											</c:forEach>
 										</select>
 										<button class="btn btn-primary" data-toggle="modal"
-											data-target="#themodal">Inscribir</button>
+											data-target="#themodal">Eliminar</button>
 										<div id="themodal" class="modal fade" data-backdrop="static">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal"
 															aria-hidden="true">&times;</button>
-														<h5>Formulario de inscripción de cursos</h5>
+														<h5>Formulario de eliminación de inscripción</h5>
 													</div>
 													<div class="modal-body">
-														<p>Estás seguro(a) de inscribir este curso?</p>
+														<p>Estás seguro(a) de eliminar este curso?</p>
 														<div class="progress progress-striped active">
 															<div id="doitprogress" class="progress-bar"></div>
 														</div>
