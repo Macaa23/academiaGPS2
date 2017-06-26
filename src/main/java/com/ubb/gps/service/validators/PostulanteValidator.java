@@ -40,7 +40,7 @@ public class PostulanteValidator implements Validator {
         String genero = postulante.getGenero();
         String telefono = postulante.getTelefono();
         
-        if (userName.length() < 3 || userName.length() > 30) {
+        if (userName.length() < 3 || userName.length() > 30 || userName == null) {
             errors.rejectValue("userName", "length.postulante.username");
         } else {
             Pattern p = Pattern.compile(REGEX_USER_NAME);
@@ -53,7 +53,7 @@ public class PostulanteValidator implements Validator {
                 }
             }
         }
-        if (password.length() < 8 || password.length() > 15) {
+        if (password.length() < 8 || password.length() > 15 || password == null) {
             errors.rejectValue("password", "length.postulante.password");
         } else {
             Pattern p = Pattern.compile(REGEX_PASSWORD);
@@ -63,7 +63,7 @@ public class PostulanteValidator implements Validator {
             }
         }
         
-        if (RUT.length() < 8 || RUT.length() > 10) {
+        if (RUT.length() < 8 || RUT.length() > 10 || RUT == null) {
             errors.rejectValue("RUT", "length.postulante.RUT");
         } else {
             if(postulanteService.getPostulanteByRUT(postulante.getRUT())) {
@@ -71,7 +71,7 @@ public class PostulanteValidator implements Validator {
             }
             
         }
-        
+        if(correo == null) errors.rejectValue("emailAddress", "email.postulante");
         Pattern p = Pattern.compile(REGEX_EMAIL);
         Matcher m = p.matcher(correo);
         if (!m.matches()) {
@@ -80,13 +80,20 @@ public class PostulanteValidator implements Validator {
         
         validateName(name, "Nombre", errors);
         
-        if (dateOfBirth.after(new Date())) {
+        if (dateOfBirth.after(new Date()) || dateOfBirth == null) {
             errors.rejectValue("dateOfBirth", "date.postulante");
+        }
+        
+        if(genero == null){
+        	 errors.rejectValue("genero", "genero.postulante");
+        }
+        if(telefono == null){
+        	 errors.rejectValue("telefono", "telefono.postulante");
         }
     }
     
     private void validateName(String check, String field, Errors errors) {
-        if (check.length() < 3 || check.length() > 30) {
+        if (check.length() < 3 || check.length() > 30 || check == null) {
             errors.rejectValue(field, "length.postulante");
         } else {
             Pattern p = Pattern.compile(REGEX_NAME);

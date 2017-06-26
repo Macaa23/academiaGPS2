@@ -215,7 +215,7 @@
 											<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
 											<input type="submit" value="Sí!" id="yesbutton"
 												class="btn btn-primary" data-loading-text="Guardando.."
-												data-complete-text="Guardado!">
+												data-complete-text="Finalizado">
 										</div>
 									</div>
 								</div>

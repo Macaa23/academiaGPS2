@@ -91,7 +91,7 @@
 										de usuario</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="Nombre de usuario" />
+											id="userNameInput" placeholder="Nombre de usuario" required="required"/>
 										<form:errors path="userName" cssClass="error" />
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 									<label for="passwordInput" class="col-lg-3 control-label">Contraseña</label>
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
-											path="password" id="passwordInput" placeholder="Contraseña" />
+											path="password" id="passwordInput" placeholder="Contraseña" required="required" />
 										<form:errors path="password" cssClass="error" />
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 									<label for="RUTInput" class="col-lg-3 control-label">RUT</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="RUT"
-											id="RUTInput" placeholder="RUT sin puntos ni guión" />
+											id="RUTInput" placeholder="RUT sin puntos ni guión" required="required"/>
 										<form:errors path="RUT" cssClass="error" />
 									</div>
 								</div>
@@ -119,7 +119,7 @@
 									<div class="col-lg-9">
 										<form:input type="email" class="form-control"
 											path="emailAddress" id="emailAddressInput"
-											placeholder="Correo electrónico" />
+											placeholder="Correo electrónico" required="required" />
 										<form:errors path="emailAddress" cssClass="error" />
 									</div>
 								</div>
@@ -129,7 +129,7 @@
 										completo</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="Nombre"
-											id="NombreInput" placeholder="Nombre completo" />
+											id="NombreInput" placeholder="Nombre completo" required="required"/>
 										<form:errors path="Nombre" cssClass="error" />
 									</div>
 								</div>
@@ -155,7 +155,7 @@
 											pattern="dd/MM/yyyy" var="theFormattedDate" />
 										<form:input type="text" class="form-control"
 											path="dateOfBirth" id="dateOfBirthInput"
-											placeholder="Date of Birth" value="${theFormattedDate}" />
+											placeholder="Date of Birth" value="${theFormattedDate}" required="required"/>
 										<form:errors path="dateOfBirth" cssClass="error" />
 									</div>
 								</div>
@@ -164,7 +164,7 @@
 									<label for="generoInput" class="col-lg-3 control-label">Género</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="genero"
-											id="generoInput" placeholder="Género" />
+											id="generoInput" placeholder="Género" required="required"/>
 										<form:errors path="genero" cssClass="error" />
 									</div>
 								</div>
@@ -173,7 +173,7 @@
 									<label for="telefonoInput" class="col-lg-3 control-label">Teléfono</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="telefono"
-											id="telefonoInput" placeholder="Teléfono" />
+											id="telefonoInput" placeholder="Teléfono" required="required"/>
 										<form:errors path="telefono" cssClass="error" />
 									</div>
 								</div>
@@ -183,7 +183,8 @@
 
 									<button class="btn btn-primary" data-toggle="modal"
 										data-target="#themodal">Enviar</button>
-									<div id="themodal" class="modal fade" data-backdrop="static">
+										
+											<div id="themodal" class="modal fade" data-backdrop="static">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -199,13 +200,14 @@
 												</div>
 												<div class="modal-footer">
 													<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
-													<input type="submit" value="Yes" id="yesbutton"
-														class="btn btn-primary" data-loading-text="Saving.."
-														data-complete-text="Saved!">
+													<input type="submit" value="Sí" id="yesbutton"
+														class="btn btn-primary" data-loading-text="Guardando.."
+														data-complete-text="Finalizado">
 												</div>
 											</div>
 										</div>
 									</div>
+									
 								</div>
 							</fieldset>
 						</form:form>

@@ -90,7 +90,7 @@
 										de usuario</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="Nombre de usuario" />
+											id="userNameInput" placeholder="Nombre de usuario" required="required" />
 										<form:errors path="userName" cssClass="error" />
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
 											path="password" id="passwordInput" placeholder="Contraseña" />
-										<form:errors path="password" cssClass="error" />
+										<form:errors path="password" cssClass="error" required="required" />
 									</div>
 								</div>
 
