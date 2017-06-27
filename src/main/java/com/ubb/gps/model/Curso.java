@@ -2,7 +2,7 @@ package com.ubb.gps.model;
 
 
 public class Curso {
-    private Long id;
+    private Long Id;
     private int cupo;
     private String Nombre;
     private String Nivel;
@@ -10,11 +10,11 @@ public class Curso {
     private Long profesorId;
 
     public Long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		Id = id;
 	}
 
 	public int getCupo() {

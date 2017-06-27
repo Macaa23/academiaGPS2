@@ -107,14 +107,14 @@
 						<c:if test="${not empty message}">
 							<div class="message orange">${message}</div>
 						</c:if>
-						<form:form id="myForm" method="post"
-							class="bs-example form-horizontal" commandName="course">
+						<form:form id="myFormtwo" method="post"
+							class="bs-example form-horizontal" commandName="curso">
 							<fieldset>
 								<legend>Formulario de eliminación de inscripción</legend>
 								<div class="form-group">
 									<div class="col-lg-9">
-										<select name="cursoId">
-											<c:forEach items="${cursos}" var="curso">
+										<select name="cid">
+											<c:forEach items="${cursos_inscritos}" var="curso">
 												<option value="${curso.getId()}">${curso.getNombre()},
 													${curso.getNivel()}</option>
 											</c:forEach>

@@ -27,9 +27,13 @@ public class InscripcionServiceImpl implements InscripcionService {
 		inscripcionMapper.insertInscripcion(ins);
 	}
     
+    @Transactional
+	public void deleteInscripcion(Long course_id, Long postulante_id) {
+		inscripcionMapper.deleteInscripcion(course_id, postulante_id);
+	}
     
-    public List<Curso> getCursosByPostulanteId(Long id) {
-        List<Curso> cursos = inscripcionMapper.getCursosByPostulanteId(id);
+    public List<Curso> getCursosByPostulanteId(Long postulante_id) {
+        List<Curso> cursos = inscripcionMapper.getCursosByPostulanteId(postulante_id);
         return cursos;
     }
     

@@ -14,8 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -182,5 +180,27 @@ public class MainController {
 		} else {
 			return "redirect:login.html";
 		}
+	}
+
+	// ELIMINACION
+	@RequestMapping(value = "/deleteInscripcion", method = RequestMethod.GET)
+	public String getCursosInscritos(Model model, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+
+		if (postulante != null) {
+			List<Curso> cursos_inscritos = inscripcionService.getCursosByPostulanteId(postulante.getId());
+			model.addAttribute("cursos_inscritos", cursos_inscritos);
+			return "deleteInscripcion";
+		} else {
+			return "redirect:login.html";
+		}
+	}
+
+	@RequestMapping(value = "/deleteInscripcion", method = RequestMethod.POST)
+	public String deleteCursos(@RequestParam(value = "cid") Integer cid, @ModelAttribute("curso") Curso cursoEliminar,
+			Model model, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		inscripcionService.deleteInscripcion(cid.longValue(), postulante.getId());
+		return getCursosInscritos(model, httpSession);
 	}
 }

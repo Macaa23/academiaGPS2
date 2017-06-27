@@ -5,18 +5,15 @@ import org.springframework.stereotype.Repository;
 
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Inscripcion;
-import com.ubb.gps.model.Postulante;
 
 import java.util.List;
 
 @Repository
 public interface InscripcionMapper {
-	
-    @Select("SELECT * FROM student WHERE postulante_id = #{id}")
-    @Results(value={
-            @Result(property="postulanteId", column ="postulante_id" )
-    })
-    List<Curso> getCursosByPostulanteId(Long id);
+
+    //@Select("SELECT course_id, nombre, nivel from curso as c join inscripcion as i on i.course_id = c.id where postulante_id = #{postulante_id}")
+	@Select("SELECT * from curso where id IN(select course_id from inscripcion where postulante_id = #{postulante_id})")
+	List<Curso> getCursosByPostulanteId(@Param("postulante_id") Long postulante_id);
     
     @Select("SELECT Id, Nombre, Nivel FROM curso")
     List<Curso> getAllCursos();
@@ -32,8 +29,8 @@ public interface InscripcionMapper {
     Inscripcion getCursoByPostulante(@Param("course_id")Long course_id, @Param("postulante_id") Long postulante_id);
     
 	
-    @Delete("DELETE FROM student WHERE id =#{studentId} AND postulante_id = #{postulanteId}")
-    void deleteCursoById(@Param("studentId")Long studentId, @Param("postulanteId") Long postulanteId);
+    @Delete("DELETE FROM inscripcion WHERE course_id = #{course_id} AND postulante_id = #{postulante_id}")
+    void deleteInscripcion(@Param("course_id")Long course_id, @Param("postulante_id") Long postulante_id);
     
     @Insert("INSERT INTO inscripcion(fecha, Estado, course_id , postulante_id) VALUES" 
     + "(#{fecha}, #{estado}, #{course_id}, #{postulante_id})")
