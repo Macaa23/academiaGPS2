@@ -5,14 +5,14 @@ import org.springframework.stereotype.Repository;
 
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Inscripcion;
+import com.ubb.gps.model.curso_inscripcion;
 
 import java.util.List;
 
 @Repository
 public interface InscripcionMapper {
 
-    //@Select("SELECT course_id, nombre, nivel from curso as c join inscripcion as i on i.course_id = c.id where postulante_id = #{postulante_id}")
-	@Select("SELECT * from curso where id IN(select course_id from inscripcion where postulante_id = #{postulante_id})")
+    @Select("SELECT * from curso where id IN(select course_id from inscripcion where postulante_id = #{postulante_id})")
 	List<Curso> getCursosByPostulanteId(@Param("postulante_id") Long postulante_id);
     
     @Select("SELECT Id, Nombre, Nivel FROM curso")
@@ -37,4 +37,6 @@ public interface InscripcionMapper {
 @Options(useGeneratedKeys=true, keyProperty="id", flushCache=true, keyColumn="id")
 	void insertInscripcion(Inscripcion ins);
 
+    @Select("select curso.Nombre, curso.Nivel, inscripcion.Estado from inscripcion join curso on inscripcion.course_id=curso.id where postulante_id = #{postulante_id})")
+    List<curso_inscripcion> getVistaCursos(@Param("postulante_id") Long postulante_id);
 }

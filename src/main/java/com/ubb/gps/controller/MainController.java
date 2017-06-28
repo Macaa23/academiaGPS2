@@ -2,6 +2,7 @@ package com.ubb.gps.controller;
 
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Postulante;
+import com.ubb.gps.model.curso_inscripcion;
 import com.ubb.gps.service.InformesService;
 import com.ubb.gps.service.InscripcionService;
 import com.ubb.gps.service.PostulanteService;
@@ -203,5 +204,18 @@ public class MainController {
 		inscripcionService.deleteInscripcion(cid.longValue(), postulante.getId());
 		model.addAttribute("message", "Curso eliminado.");
 		return getCursosInscritos(model, httpSession);
+	}
+	
+	//VER CURSOS
+	@RequestMapping(value = "/verCursos", method = RequestMethod.GET)
+	public String getVistaCursos(Model model, HttpSession httpSession) {
+		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
+		if (postulante != null) {
+			List<curso_inscripcion> cursos = inscripcionService.getVistaCursos(postulante.getId());
+			model.addAttribute("cursos", cursos);
+			return "verCursos";
+		} else {
+			return "redirect:login.html";
+		}
 	}
 }

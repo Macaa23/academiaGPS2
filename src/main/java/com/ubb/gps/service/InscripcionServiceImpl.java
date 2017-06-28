@@ -4,6 +4,7 @@ package com.ubb.gps.service;
 import com.ubb.gps.mappers.InscripcionMapper;
 import com.ubb.gps.model.Curso;
 import com.ubb.gps.model.Inscripcion;
+import com.ubb.gps.model.curso_inscripcion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,12 @@ public class InscripcionServiceImpl implements InscripcionService {
 		}else{
 			return "Preinscrito(a)";
 		}
+	}
+
+	@Override
+	public List<curso_inscripcion> getVistaCursos(Long postulante_id) {
+		List<curso_inscripcion> cursos = inscripcionMapper.getVistaCursos(postulante_id);
+        return cursos;
 	}
 
 }

@@ -3,7 +3,7 @@ package com.ubb.gps.service;
 import java.util.List;
 
 import com.ubb.gps.model.Curso;
-import com.ubb.gps.model.Postulante;
+import com.ubb.gps.model.curso_inscripcion;
 
 public interface InscripcionService {
 	
@@ -13,4 +13,5 @@ public interface InscripcionService {
 	void insertInscripcion(Long course_id, Long postulante_id);
 	String getEstadoInscripcion(Long course_id);
 	void deleteInscripcion(Long course_id, Long postulante_id);
+	List<curso_inscripcion> getVistaCursos(Long postulante_id);
 }
