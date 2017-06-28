@@ -14,8 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
-
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,11 +40,25 @@ public class MainController {
 
 	@Autowired
 	private InformesService informesService;
-
+	
+	Properties prop = new Properties();
+	InputStream input = null;
+	
+	
 	@RequestMapping(value = "/adminIndex", method = RequestMethod.GET)
 	public String adminIndex(Model model, HttpSession httpSession) {
 		model.addAttribute("ranks", informesService.getRanking());
 		return "adminIndex";
+	}
+	
+	@RequestMapping(value = "/adminCursos", method = RequestMethod.GET)
+	public String adminCursos(Model model, HttpSession httpSession) {
+		model.addAttribute("cursos", informesService.getCursos());
+		model.addAttribute("inscritos1", informesService.getInscritos(informesService.getCursos().get(0).getId()));
+		model.addAttribute("inscritos2", informesService.getInscritos(informesService.getCursos().get(1).getId()));
+		model.addAttribute("inscritos3", informesService.getInscritos(informesService.getCursos().get(2).getId()));
+		model.addAttribute("inscritos4", informesService.getInscritos(informesService.getCursos().get(3).getId()));
+		return "adminCursos";
 	}
 
 	// SIGNUP
@@ -75,6 +90,7 @@ public class MainController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("postulanteLogin") Postulante postulante, BindingResult result,
 			HttpSession httpSession, Model model) {
+		
 		if (postulante.getUserName().equals("ac.admin") && postulante.getPassword().equals("danza123")) {
 			return "redirect:/adminIndex.html";
 		} else {
