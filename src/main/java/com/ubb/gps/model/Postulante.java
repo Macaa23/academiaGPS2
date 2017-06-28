@@ -1,5 +1,6 @@
 package com.ubb.gps.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Postulante {
@@ -13,7 +14,6 @@ public class Postulante {
 	private String genero;
 	private String telefono;
 
-	
 	public String getRUT() {
 		return RUT;
 	}
@@ -38,6 +38,11 @@ public class Postulante {
 		Nombre = nombre;
 	}
 
+	public String getSimpleDateOfBirth() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		return formatter.format(dateOfBirth);
+	}
+	
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
@@ -86,30 +91,29 @@ public class Postulante {
 		this.userName = userName;
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Postulante)) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof Postulante))
+			return false;
 
-        Postulante postulante = (Postulante) o;
+		Postulante postulante = (Postulante) o;
 
-        if (!getUserName().equals(postulante.getUserName())) return false;
-        return getPassword().equals(postulante.getPassword());
-    }
+		if (!getUserName().equals(postulante.getUserName()))
+			return false;
+		return getPassword().equals(postulante.getPassword());
+	}
 
-    @Override
-    public int hashCode() {
-        int result = getUserName().hashCode();
-        result = 31 * result + getPassword().hashCode();
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = getUserName().hashCode();
+		result = 31 * result + getPassword().hashCode();
+		return result;
+	}
 
-    @Override
-    public String toString() {
-        return "Postulante{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Postulante{" + "id=" + id + ", userName='" + userName + '\'' + ", password='" + password + '\'' + '}';
+	}
 }

@@ -201,6 +201,7 @@ public class MainController {
 			Model model, HttpSession httpSession) {
 		Postulante postulante = (Postulante) httpSession.getAttribute("curPostulante");
 		inscripcionService.deleteInscripcion(cid.longValue(), postulante.getId());
+		model.addAttribute("message", "Curso eliminado.");
 		return getCursosInscritos(model, httpSession);
 	}
 }

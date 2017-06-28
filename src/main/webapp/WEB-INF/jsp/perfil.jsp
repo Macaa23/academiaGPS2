@@ -167,7 +167,7 @@
 										<tr>
 										<tr>
 											<td>Fecha de nacimiento</td>
-											<td>${postulante.getDateOfBirth().toString()}</td>
+											<td>${postulante.getSimpleDateOfBirth()}</td>
 										</tr>
 										<tr>
 											<td>Género</td>
