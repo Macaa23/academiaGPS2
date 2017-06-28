@@ -37,6 +37,6 @@ public interface InscripcionMapper {
 @Options(useGeneratedKeys=true, keyProperty="id", flushCache=true, keyColumn="id")
 	void insertInscripcion(Inscripcion ins);
 
-    @Select("select curso.Nombre, curso.Nivel, inscripcion.Estado from inscripcion join curso on inscripcion.course_id=curso.id where postulante_id = #{postulante_id})")
+    @Select("select curso.Nombre, curso.Nivel, inscripcion.Estado from inscripcion join curso on inscripcion.course_id=curso.id where postulante_id = #{postulante_id}")
     List<curso_inscripcion> getVistaCursos(@Param("postulante_id") Long postulante_id);
 }

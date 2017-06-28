@@ -1,7 +1,5 @@
 package com.ubb.gps.model;
 
-import java.util.Date;
-
 public class curso_inscripcion {
 
 	private String Nombre;
