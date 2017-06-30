@@ -1,6 +1,9 @@
 package com.ubb.gps.model;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Postulante {
@@ -89,6 +92,13 @@ public class Postulante {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	
+	public int getAge(){
+		LocalDate n = dateOfBirth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate hoy = LocalDate.now();
+		Period p = Period.between(n, hoy);
+		return p.getYears();
 	}
 
 	@Override

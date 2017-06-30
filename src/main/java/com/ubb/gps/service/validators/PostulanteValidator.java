@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,6 +87,13 @@ public class PostulanteValidator implements Validator {
             errors.rejectValue("dateOfBirth", "date.postulante");
         }
         
+        LocalDate n = dateOfBirth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate hoy = LocalDate.now();
+		Period period = Period.between(n, hoy);
+		if (period.getYears()<18) {
+            errors.rejectValue("dateOfBirth", "date.legal.postulante");
+        }
+		
         if(genero == null){
         	 errors.rejectValue("genero", "genero.postulante");
         }
@@ -103,4 +113,6 @@ public class PostulanteValidator implements Validator {
             }
         }
     }
+    
+	
 }

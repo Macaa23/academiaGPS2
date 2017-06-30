@@ -92,7 +92,7 @@
 											<th>RUT</th>
 											<th>Nombre</th>
 											<th>Email</th>
-											<th>F. Nacimiento</th>
+											<th>Edad</th>
 											<th>Género</th>
 											<th>Teléfono</th>
 											<th>Estado</th>
@@ -106,7 +106,7 @@
 												<td>${inscritos.getRUT()}</td>
 												<td>${inscritos.getNombre()}</td>
 												<td>${inscritos.getEmailAddress()}</td>
-												<td>${inscritos.getDateOfBirth()}</td>
+												<td>${inscritos.getAge()}</td>
 												<td>${inscritos.getGenero()}</td>
 												<td>${inscritos.getTelefono()}</td>
 												<td>${inscritos.getEstado()}</td>

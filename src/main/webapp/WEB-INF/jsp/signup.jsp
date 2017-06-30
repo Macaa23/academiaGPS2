@@ -179,7 +179,6 @@
 								</div>
 
 								<div class="col-lg-9 col-lg-offset-3">
-									<button class="btn btn-default">Cancelar</button>
 
 									<button class="btn btn-primary" data-toggle="modal"
 										data-target="#themodal">Enviar</button>

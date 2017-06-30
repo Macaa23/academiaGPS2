@@ -1,6 +1,9 @@
 package com.ubb.gps.model;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class postulante_inscripcion {
@@ -29,6 +32,13 @@ public class postulante_inscripcion {
 	public String getDateOfBirth() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		return formatter.format(dateOfBirth);
+	}
+	
+	public int getAge(){
+		LocalDate n = dateOfBirth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate hoy = LocalDate.now();
+		Period p = Period.between(n, hoy);
+		return p.getYears();
 	}
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
