@@ -80,7 +80,7 @@
 
 		<div class="container-fluid">
 			<!-- Example Tables Card -->
-			<div class="card mb-3">
+			<div class="card mb-3" id="print">
 				<div class="card-header">
 					<i class="fa fa-trophy"></i> Ranking: Cursos con mayor demanda
 				</div>
@@ -120,9 +120,13 @@
 
 		</div>
 		<!-- /.container-fluid -->
+		<div class="container-fluid">
+			<button id="print" onclick="printContent('print');">Imprimir</button>
+		</div>
 
 	</div>
 	<!-- /.content-wrapper -->
+
 
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fa fa-chevron-up"></i>
@@ -142,5 +146,16 @@
 	<script src="bootstrapA/js/sb-admin.min.js"></script>
 
 </body>
+
+<script>
+	function printContent(el) {
+		var restorepage = $('body').html();
+		var printcontent = $('#' + el).clone();
+		$('body').empty().html(printcontent);
+		window.print();
+		//$('body').html(restorepage);
+		location.reload();
+	}
+</script>
 
 </html>

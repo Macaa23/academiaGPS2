@@ -65,8 +65,9 @@
 			<li class="nav-item active"><a class="nav-link"
 				href="adminCursos.html"><i class="fa fa-fw fa-area-chart"></i>
 					Situación por curso</a></li>
-			<li class="nav-item"><a class="nav-link" href="adminResumen.html"><i
-					class="fa fa-fw fa-table"></i> Resumen</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="adminResumen.html"><i class="fa fa-fw fa-table"></i>
+					Resumen</a></li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="logout.html"><i
@@ -74,211 +75,191 @@
 		</ul>
 	</div>
 	</nav>
-		<div class="content-wrapper py-3">
-			<div class="container-fluid">
-				<!-- Example Tables Card -->
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fa fa-trophy"></i> ${cursos.get(0).getNombre()}, ${cursos.get(0).getNivel()}, Cupo: ${cursos.get(0).getCupo()}
-					</div>
-					<div class="card-block">
-						<div class="table-responsive">
-							<table class="table table-bordered" width="100%" id="dataTable"
-								cellspacing="0">
-								<c:if test="${fn:length(inscritos1) > 0}">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>RUT</th>
-											<th>Nombre</th>
-											<th>Email</th>
-											<th>Edad</th>
-											<th>Género</th>
-											<th>Teléfono</th>
-											<th>Estado</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${inscritos1}" var="inscritos"
-											varStatus="itr">
-											<tr>
-												<td>${itr.index +1 }</td>
-												<td>${inscritos.getRUT()}</td>
-												<td>${inscritos.getNombre()}</td>
-												<td>${inscritos.getEmailAddress()}</td>
-												<td>${inscritos.getAge()}</td>
-												<td>${inscritos.getGenero()}</td>
-												<td>${inscritos.getTelefono()}</td>
-												<td>${inscritos.getEstado()}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</c:if>
-							</table>
-						</div>
-					</div>
-					<div class="card-footer small text-muted"></div>
+	<div class="content-wrapper py-3">
+		<div class="container-fluid" id="print">
+			<!-- Example Tables Card -->
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-trophy"></i> ${cursos.get(0).getNombre()},
+					${cursos.get(0).getNivel()}, Cupo: ${cursos.get(0).getCupo()}
 				</div>
-			</div>
-			<!-- /.container-fluid -->
-
-		</div>
-	<!-- /.content-wrapper -->
-		<div class="content-wrapper py-3">
-			<div class="container-fluid">
-				<!-- Example Tables Card -->
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fa fa-trophy"></i> ${cursos.get(1).getNombre()}, ${cursos.get(1).getNivel()}, Cupo: ${cursos.get(1).getCupo()}
-					</div>
-					<div class="card-block">
-						<div class="table-responsive">
-							<table class="table table-bordered" width="100%" id="dataTable"
-								cellspacing="0">
-								<c:if test="${fn:length(inscritos2) > 0}">
-									<thead>
+				<div class="card-block">
+					<div class="table-responsive">
+						<table class="table table-bordered" width="100%" id="dataTable"
+							cellspacing="0">
+							<c:if test="${fn:length(inscritos1) > 0}">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>RUT</th>
+										<th>Nombre</th>
+										<th>Email</th>
+										<th>Edad</th>
+										<th>Género</th>
+										<th>Teléfono</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${inscritos1}" var="inscritos"
+										varStatus="itr">
 										<tr>
-											<th>#</th>
-											<th>RUT</th>
-											<th>Nombre</th>
-											<th>Email</th>
-											<th>F. Nacimiento</th>
-											<th>Género</th>
-											<th>Teléfono</th>
-											<th>Estado</th>
+											<td>${itr.index +1 }</td>
+											<td>${inscritos.getRUT()}</td>
+											<td>${inscritos.getNombre()}</td>
+											<td>${inscritos.getEmailAddress()}</td>
+											<td>${inscritos.getAge()}</td>
+											<td>${inscritos.getGenero()}</td>
+											<td>${inscritos.getTelefono()}</td>
+											<td>${inscritos.getEstado()}</td>
 										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${inscritos2}" var="inscritos"
-											varStatus="itr">
-											<tr>
-												<td>${itr.index +1 }</td>
-												<td>${inscritos.getRUT()}</td>
-												<td>${inscritos.getNombre()}</td>
-												<td>${inscritos.getEmailAddress()}</td>
-												<td>${inscritos.getDateOfBirth()}</td>
-												<td>${inscritos.getGenero()}</td>
-												<td>${inscritos.getTelefono()}</td>
-												<td>${inscritos.getEstado()}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</c:if>
-							</table>
-						</div>
+									</c:forEach>
+								</tbody>
+							</c:if>
+						</table>
 					</div>
-					<div class="card-footer small text-muted"></div>
 				</div>
+				<div class="card-footer small text-muted"></div>
 			</div>
-			<!-- /.container-fluid -->
-
-		</div>
-	<!-- /.content-wrapper -->
-	
-	<!-- /.content-wrapper -->
-		<div class="content-wrapper py-3">
-			<div class="container-fluid">
-				<!-- Example Tables Card -->
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fa fa-trophy"></i> ${cursos.get(2).getNombre()}, ${cursos.get(2).getNivel()}, Cupo: ${cursos.get(2).getCupo()}
-					</div>
-					<div class="card-block">
-						<div class="table-responsive">
-							<table class="table table-bordered" width="100%" id="dataTable"
-								cellspacing="0">
-								<c:if test="${fn:length(inscritos3) > 0}">
-									<thead>
+			<!-- Example Tables Card -->
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-trophy"></i> ${cursos.get(1).getNombre()},
+					${cursos.get(1).getNivel()}, Cupo: ${cursos.get(1).getCupo()}
+				</div>
+				<div class="card-block">
+					<div class="table-responsive">
+						<table class="table table-bordered" width="100%" id="dataTable"
+							cellspacing="0">
+							<c:if test="${fn:length(inscritos2) > 0}">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>RUT</th>
+										<th>Nombre</th>
+										<th>Email</th>
+										<th>F. Nacimiento</th>
+										<th>Género</th>
+										<th>Teléfono</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${inscritos2}" var="inscritos"
+										varStatus="itr">
 										<tr>
-											<th>#</th>
-											<th>RUT</th>
-											<th>Nombre</th>
-											<th>Email</th>
-											<th>F. Nacimiento</th>
-											<th>Género</th>
-											<th>Teléfono</th>
-											<th>Estado</th>
+											<td>${itr.index +1 }</td>
+											<td>${inscritos.getRUT()}</td>
+											<td>${inscritos.getNombre()}</td>
+											<td>${inscritos.getEmailAddress()}</td>
+											<td>${inscritos.getDateOfBirth()}</td>
+											<td>${inscritos.getGenero()}</td>
+											<td>${inscritos.getTelefono()}</td>
+											<td>${inscritos.getEstado()}</td>
 										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${inscritos3}" var="inscritos"
-											varStatus="itr">
-											<tr>
-												<td>${itr.index +1 }</td>
-												<td>${inscritos.getRUT()}</td>
-												<td>${inscritos.getNombre()}</td>
-												<td>${inscritos.getEmailAddress()}</td>
-												<td>${inscritos.getDateOfBirth()}</td>
-												<td>${inscritos.getGenero()}</td>
-												<td>${inscritos.getTelefono()}</td>
-												<td>${inscritos.getEstado()}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</c:if>
-							</table>
-						</div>
+									</c:forEach>
+								</tbody>
+							</c:if>
+						</table>
 					</div>
-					<div class="card-footer small text-muted"></div>
 				</div>
+				<div class="card-footer small text-muted"></div>
 			</div>
-			<!-- /.container-fluid -->
-
-		</div>
-	<!-- /.content-wrapper -->
-	
-	<!-- /.content-wrapper -->
-		<div class="content-wrapper py-3">
-			<div class="container-fluid">
-				<!-- Example Tables Card -->
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fa fa-trophy"></i> ${cursos.get(3).getNombre()}, ${cursos.get(3).getNivel()}, Cupo: ${cursos.get(3).getCupo()}
-					</div>
-					<div class="card-block">
-						<div class="table-responsive">
-							<table class="table table-bordered" width="100%" id="dataTable"
-								cellspacing="0">
-								<c:if test="${fn:length(inscritos4) > 0}">
-									<thead>
+			<!-- Example Tables Card -->
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-trophy"></i> ${cursos.get(2).getNombre()},
+					${cursos.get(2).getNivel()}, Cupo: ${cursos.get(2).getCupo()}
+				</div>
+				<div class="card-block">
+					<div class="table-responsive">
+						<table class="table table-bordered" width="100%" id="dataTable"
+							cellspacing="0">
+							<c:if test="${fn:length(inscritos3) > 0}">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>RUT</th>
+										<th>Nombre</th>
+										<th>Email</th>
+										<th>F. Nacimiento</th>
+										<th>Género</th>
+										<th>Teléfono</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${inscritos3}" var="inscritos"
+										varStatus="itr">
 										<tr>
-											<th>#</th>
-											<th>RUT</th>
-											<th>Nombre</th>
-											<th>Email</th>
-											<th>F. Nacimiento</th>
-											<th>Género</th>
-											<th>Teléfono</th>
-											<th>Estado</th>
+											<td>${itr.index +1 }</td>
+											<td>${inscritos.getRUT()}</td>
+											<td>${inscritos.getNombre()}</td>
+											<td>${inscritos.getEmailAddress()}</td>
+											<td>${inscritos.getDateOfBirth()}</td>
+											<td>${inscritos.getGenero()}</td>
+											<td>${inscritos.getTelefono()}</td>
+											<td>${inscritos.getEstado()}</td>
 										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${inscritos4}" var="inscritos"
-											varStatus="itr">
-											<tr>
-												<td>${itr.index +1 }</td>
-												<td>${inscritos.getRUT()}</td>
-												<td>${inscritos.getNombre()}</td>
-												<td>${inscritos.getEmailAddress()}</td>
-												<td>${inscritos.getDateOfBirth()}</td>
-												<td>${inscritos.getGenero()}</td>
-												<td>${inscritos.getTelefono()}</td>
-												<td>${inscritos.getEstado()}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</c:if>
-							</table>
-						</div>
+									</c:forEach>
+								</tbody>
+							</c:if>
+						</table>
 					</div>
-					<div class="card-footer small text-muted"></div>
 				</div>
+				<div class="card-footer small text-muted"></div>
 			</div>
-			<!-- /.container-fluid -->
-
+			<!-- Example Tables Card -->
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-trophy"></i> ${cursos.get(3).getNombre()},
+					${cursos.get(3).getNivel()}, Cupo: ${cursos.get(3).getCupo()}
+				</div>
+				<div class="card-block">
+					<div class="table-responsive">
+						<table class="table table-bordered" width="100%" id="dataTable"
+							cellspacing="0">
+							<c:if test="${fn:length(inscritos4) > 0}">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>RUT</th>
+										<th>Nombre</th>
+										<th>Email</th>
+										<th>F. Nacimiento</th>
+										<th>Género</th>
+										<th>Teléfono</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${inscritos4}" var="inscritos"
+										varStatus="itr">
+										<tr>
+											<td>${itr.index +1 }</td>
+											<td>${inscritos.getRUT()}</td>
+											<td>${inscritos.getNombre()}</td>
+											<td>${inscritos.getEmailAddress()}</td>
+											<td>${inscritos.getDateOfBirth()}</td>
+											<td>${inscritos.getGenero()}</td>
+											<td>${inscritos.getTelefono()}</td>
+											<td>${inscritos.getEstado()}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</c:if>
+						</table>
+					</div>
+				</div>
+				<div class="card-footer small text-muted"></div>
+			</div>
 		</div>
+		<!-- /.container-fluid -->
+		<div class="container-fluid">
+			<button id="print" onclick="printContent('print');">Imprimir</button>
+		</div>
+	</div>
 	<!-- /.content-wrapper -->
-	
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fa fa-chevron-up"></i>
 	</a>
@@ -295,7 +276,15 @@
 	<script src="bootstrapA/vendor/datatables/dataTables.bootstrap4.js"></script>
 	<!-- Custom scripts for this template -->
 	<script src="bootstrapA/js/sb-admin.min.js"></script>
-
 </body>
-
+<script>
+	function printContent(el) {
+		var restorepage = $('body').html();
+		var printcontent = $('#' + el).clone();
+		$('body').empty().html(printcontent);
+		window.print();
+		//$('body').html(restorepage);
+		location.reload();
+	}
+</script>
 </html>

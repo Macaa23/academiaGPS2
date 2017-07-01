@@ -85,8 +85,9 @@ h5 {
 	</div>
 	</nav>
 	<div class="content-wrapper py-3">
-		<div class="container-fluid">
-			<h5 align="center">"Preinscritos", por curso</h5>
+
+		<div class="container-fluid" id="print">
+			<h5 align="center">Estadísticas por curso</h5>
 			<table class="table">
 				<thead class="thead-inverse">
 					<tr>
@@ -100,35 +101,35 @@ h5 {
 				<tbody>
 					<tr>
 						<th scope="row">1</th>
-						<td>${cursos.get(0).getNombre()}, ${cursos.get(0).getNivel()}</td>
+						<td>${cursos.get(0).getNombre()},${cursos.get(0).getNivel()}</td>
 						<td>${pc0}</td>
 						<td>${le0}</td>
 						<td>${e0}</td>
 					</tr>
 					<tr>
 						<th scope="row">2</th>
-						<td>${cursos.get(1).getNombre()}, ${cursos.get(1).getNivel()}</td>
+						<td>${cursos.get(1).getNombre()},${cursos.get(1).getNivel()}</td>
 						<td>${pc1}</td>
 						<td>${le1}</td>
 						<td>${e1}</td>
 					</tr>
 					<tr>
 						<th scope="row">3</th>
-						<td>${cursos.get(2).getNombre()}, ${cursos.get(2).getNivel()}</td>
+						<td>${cursos.get(2).getNombre()},${cursos.get(2).getNivel()}</td>
 						<td>${pc2}</td>
 						<td>${le2}</td>
 						<td>${e2}</td>
 					</tr>
 					<tr>
 						<th scope="row">4</th>
-						<td>${cursos.get(3).getNombre()}, ${cursos.get(3).getNivel()}</td>
+						<td>${cursos.get(3).getNombre()},${cursos.get(3).getNivel()}</td>
 						<td>${pc3}</td>
 						<td>${le3}</td>
 						<td>${e3}</td>
 					</tr>
 				</tbody>
 			</table>
-			
+
 			<h5 align="center">Otras estadísticas</h5>
 			<table class="table">
 				<thead class="thead-inverse">
@@ -167,9 +168,12 @@ h5 {
 				</tbody>
 			</table>
 		</div>
+		<!-- /.container-fluid -->
+		<div class="container-fluid">
+			<button id="print" onclick="printContent('print');">Imprimir</button>
+		</div>
 	</div>
-	<!-- /.container-fluid -->
-
+	<!-- /.content-wrapper -->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fa fa-chevron-up"></i>
 	</a>
@@ -187,5 +191,14 @@ h5 {
 	<!-- Custom scripts for this template -->
 	<script src="bootstrapA/js/sb-admin.min.js"></script>
 </body>
-
+<script>
+	function printContent(el) {
+		var restorepage = $('body').html();
+		var printcontent = $('#' + el).clone();
+		$('body').empty().html(printcontent);
+		window.print();
+		//$('body').html(restorepage);
+		location.reload();
+	}
+</script>
 </html>
