@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -70,8 +70,8 @@
 		<div class="well">
 			<div class="container">
 					<div>
-						<h3>Bienvenido(a) al mÃ³dulo de registro de postulantes</h3>
-						<p>Ingresa tus datos a continuaciÃ³n</p>
+						<h3>Bienvenido(a) al módulo de registro de postulantes</h3>
+						<p>Ingresa tus datos a continuación</p>
 					</div>
 			</div>
 		</div>
@@ -97,10 +97,10 @@
 								</div>
 
 								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">ContraseÃ±a</label>
+									<label for="passwordInput" class="col-lg-3 control-label">Contraseña</label>
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
-											path="password" id="passwordInput" placeholder="ContraseÃ±a" required="required" />
+											path="password" id="passwordInput" placeholder="Contraseña" required="required" />
 										<form:errors path="password" cssClass="error" />
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 									<label for="RUTInput" class="col-lg-3 control-label">RUT</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="RUT"
-											id="RUTInput" placeholder="RUT sin puntos ni guiÃ³n" required="required"/>
+											id="RUTInput" placeholder="RUT sin puntos ni guión" required="required"/>
 										<form:errors path="RUT" cssClass="error" />
 									</div>
 								</div>
@@ -119,7 +119,7 @@
 									<div class="col-lg-9">
 										<form:input type="email" class="form-control"
 											path="emailAddress" id="emailAddressInput"
-											placeholder="Correo electrÃ³nico" required="required" />
+											placeholder="Correo electrónico" required="required" />
 										<form:errors path="emailAddress" cssClass="error" />
 									</div>
 								</div>
@@ -161,19 +161,19 @@
 								</div>
 
 								<div class="form-group">
-									<label for="generoInput" class="col-lg-3 control-label">GÃ©nero</label>
+									<label for="generoInput" class="col-lg-3 control-label">Género</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="genero"
-											id="generoInput" placeholder="GÃ©nero" required="required"/>
+											id="generoInput" placeholder="Género" required="required"/>
 										<form:errors path="genero" cssClass="error" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="telefonoInput" class="col-lg-3 control-label">TelÃ©fono</label>
+									<label for="telefonoInput" class="col-lg-3 control-label">Teléfono</label>
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control" path="telefono"
-											id="telefonoInput" placeholder="TelÃ©fono" required="required"/>
+											id="telefonoInput" placeholder="Teléfono" required="required"/>
 										<form:errors path="telefono" cssClass="error" />
 									</div>
 								</div>
@@ -192,14 +192,14 @@
 													<h3>Formulario de registro para postulantes</h3>
 												</div>
 												<div class="modal-body">
-													<p>Â¿EstÃ¡s seguro(a)?</p>
+													<p>¿Estás seguro(a)?</p>
 													<div class="progress progress-striped active">
 														<div id="doitprogress" class="progress-bar"></div>
 													</div>
 												</div>
 												<div class="modal-footer">
 													<a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
-													<input type="submit" value="SÃ­" id="yesbutton"
+													<input type="submit" value="Sí" id="yesbutton"
 														class="btn btn-primary" data-loading-text="Guardando.."
 														data-complete-text="Finalizado">
 												</div>

@@ -24,7 +24,7 @@ public class PostulanteValidator implements Validator {
     private static final String REGEX_USER_NAME = "^[a-zA-Z0-9_*!\\^]+$";
     private static final String REGEX_PASSWORD = "^[a-zA-Z0-9_*!\\^]+$";
     private static final String REGEX_EMAIL = "^[a-z0-9.]{3,25}@[a-z.]{3,10}\\.[a-z]{2,5}$";
-    private static final String REGEX_NAME = "^[a-zA-Z ]*$";
+    private static final String REGEX_NAME = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$";
     
     @Override
     public boolean supports(Class<?> aClass) {
@@ -65,12 +65,11 @@ public class PostulanteValidator implements Validator {
                 errors.rejectValue("password", "pattern.postulante.password");
             }
         }
-        
-        if (RUT.length() < 8 || RUT.length() > 10 || RUT == null) {
-            errors.rejectValue("RUT", "length.postulante.RUT");
+        if (RUT.length() < 8 || RUT.length() > 9 || RUT == null) {
+            errors.rejectValue("RUT", "rut.postulante");
         } else {
             if(postulanteService.getPostulanteByRUT(postulante.getRUT())) {
-                errors.rejectValue("RUT", "exist.postulante");
+                errors.rejectValue("RUT", "existrut.postulante");
             }
             
         }
