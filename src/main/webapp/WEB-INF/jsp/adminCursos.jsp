@@ -65,7 +65,7 @@
 			<li class="nav-item active"><a class="nav-link"
 				href="adminCursos.html"><i class="fa fa-fw fa-area-chart"></i>
 					Situación por curso</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"><i
+			<li class="nav-item"><a class="nav-link" href="adminResumen.html"><i
 					class="fa fa-fw fa-table"></i> Resumen</a></li>
 		</ul>
 		<ul class="navbar-nav ml-auto">

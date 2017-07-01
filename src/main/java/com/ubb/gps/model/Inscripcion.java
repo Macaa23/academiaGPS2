@@ -1,5 +1,6 @@
 package com.ubb.gps.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Inscripcion {
@@ -46,6 +47,11 @@ public class Inscripcion {
 
 	public Date getFecha() {
 		return fecha;
+	}
+	
+	public String getSimpleFecha() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		return formatter.format(fecha);
 	}
 
 	public void setFecha(Date fecha) {

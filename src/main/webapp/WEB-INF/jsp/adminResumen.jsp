@@ -45,6 +45,15 @@
 .tbody {
 	float: right;
 }
+
+h5 {
+	display: block;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
 </style>
 <body id="page-top">
 
@@ -60,12 +69,12 @@
 	<a class="navbar-brand" href="#">Administración</a>
 	<div class="collapse navbar-collapse" id="navbarExample">
 		<ul class="sidebar-nav navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="adminIndex.html"><i
+					class="fa fa-fw fa-dashboard"></i> Ranking</a></li>
+			<li class="nav-item "><a class="nav-link"
+				href="adminCursos.html"><i class="fa fa-fw fa-area-chart"></i>
+					Situación por curso</a></li>
 			<li class="nav-item active"><a class="nav-link"
-				href="adminIndex.html"><i class="fa fa-fw fa-dashboard"></i>
-					Ranking</a></li>
-			<li class="nav-item"><a class="nav-link" href="adminCursos.html"><i
-					class="fa fa-fw fa-area-chart"></i> Situación por curso</a></li>
-			<li class="nav-item"><a class="nav-link"
 				href="adminResumen.html"><i class="fa fa-fw fa-table"></i>
 					Resumen</a></li>
 		</ul>
@@ -75,54 +84,91 @@
 		</ul>
 	</div>
 	</nav>
-
 	<div class="content-wrapper py-3">
-
 		<div class="container-fluid">
-			<!-- Example Tables Card -->
-			<div class="card mb-3">
-				<div class="card-header">
-					<i class="fa fa-trophy"></i> Ranking: Cursos con mayor demanda
-				</div>
-				<div class="card-block">
-					<div class="table-responsive">
-						<table class="table table-bordered" width="100%" id="dataTable"
-							cellspacing="0">
-							<c:if test="${fn:length(ranks) > 0}">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Nombre</th>
-										<th>Nivel</th>
-										<th>Cupo</th>
-										<th>Inscritos</th>
-										<th>Lista de espera</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${ranks}" var="rank" varStatus="itr">
-										<tr>
-											<td>${itr.index +1 }</td>
-											<td>${rank.getNombre()}</td>
-											<td>${rank.getNivel()}</td>
-											<td>${rank.getCupo()}</td>
-											<td>${rank.getPorcentaje()}%</td>
-											<td>${rank.getLista_Espera()}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</c:if>
-						</table>
-					</div>
-				</div>
-				<div class="card-footer small text-muted"></div>
-			</div>
-
+			<h5 align="center">"Preinscritos", por curso</h5>
+			<table class="table">
+				<thead class="thead-inverse">
+					<tr>
+						<th>#</th>
+						<th>Curso</th>
+						<th>Preinscritos</th>
+						<th>En lista de espera</th>
+						<th>Edad promedio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>${cursos.get(0).getNombre()}, ${cursos.get(0).getNivel()}</td>
+						<td>${pc0}</td>
+						<td>${le0}</td>
+						<td>${e0}</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>${cursos.get(1).getNombre()}, ${cursos.get(1).getNivel()}</td>
+						<td>${pc1}</td>
+						<td>${le1}</td>
+						<td>${e1}</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>${cursos.get(2).getNombre()}, ${cursos.get(2).getNivel()}</td>
+						<td>${pc2}</td>
+						<td>${le2}</td>
+						<td>${e2}</td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>${cursos.get(3).getNombre()}, ${cursos.get(3).getNivel()}</td>
+						<td>${pc3}</td>
+						<td>${le3}</td>
+						<td>${e3}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h5 align="center">Otras estadísticas</h5>
+			<table class="table">
+				<thead class="thead-inverse">
+					<tr>
+						<th>#</th>
+						<th>Título</th>
+						<th>Cifra</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Cantidad de cursos</td>
+						<td>${cursos.size()}</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Promedio de cursos inscritos por postulante</td>
+						<td>${p_curso}</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Promedio de inscritos por curso</td>
+						<td>${p_ins}</td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>Primera inscripción hecha</td>
+						<td>${f_first}</td>
+					</tr>
+					<tr>
+						<th scope="row">5</th>
+						<td>Última inscripción hecha</td>
+						<td>${f_last}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<!-- /.container-fluid -->
-
 	</div>
-	<!-- /.content-wrapper -->
+	<!-- /.container-fluid -->
 
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fa fa-chevron-up"></i>
@@ -140,7 +186,6 @@
 	<script src="bootstrapA/vendor/datatables/dataTables.bootstrap4.js"></script>
 	<!-- Custom scripts for this template -->
 	<script src="bootstrapA/js/sb-admin.min.js"></script>
-
 </body>
 
 </html>

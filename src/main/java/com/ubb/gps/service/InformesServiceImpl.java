@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ubb.gps.mappers.AdminMapper;
 import com.ubb.gps.model.Curso;
+import com.ubb.gps.model.Inscripcion;
 import com.ubb.gps.model.Ranking;
 import com.ubb.gps.model.postulante_inscripcion;
 
@@ -42,7 +43,46 @@ public class InformesServiceImpl implements InformesService{
 		List<postulante_inscripcion> inscritos = adminMapper.getInscritos(course_id);
 		return inscritos;
 	}
-
+	
+	@Override
+	public int getEdadPromedio(Long course_id) {
+		List<postulante_inscripcion> inscritos = adminMapper.getInscritos(course_id);
+		int sum = 0;
+		for (int i = 0; i < inscritos.size(); i++) {
+			sum += inscritos.get(i).getAge();
+		}
+		return sum / inscritos.size();
+	}
+	
+	@Override
+	public int getCountTrueInscritos(Long course_id){
+		return adminMapper.getCountTrueInscritos(course_id);
+	}
+	
+	@Override
+	public int getCountFalseInscritos(Long course_id){
+		return adminMapper.getCountFalseInscritos(course_id);
+	}
+	
+	@Override
+	public float getInscripcionesPromedio(){
+		return adminMapper.getInscripcionesPromedio();
+	}
+	
+	@Override
+	public Inscripcion getLastInscripcion(){
+		return adminMapper.getLastInscripcion();
+	}
+	
+	@Override
+	public Inscripcion getFirstInscripcion(){
+		return adminMapper.getFirstInscripcion();
+	}
+	
+	@Override
+	public float getInscritosPromedio(){
+		return adminMapper.getInscritosPromedio();
+	}
 }
 
 class OrdenRank implements Comparator<Ranking> {

@@ -60,6 +60,43 @@ public class MainController {
 		model.addAttribute("inscritos4", informesService.getInscritos(informesService.getCursos().get(3).getId()));
 		return "adminCursos";
 	}
+	
+	@RequestMapping(value = "/adminResumen", method = RequestMethod.GET)
+	public String adminResumen(Model model, HttpSession httpSession) {
+		List<Curso> cursos = informesService.getCursos();
+		model.addAttribute("cursos", cursos);
+		//Numero de preinscritos por curso
+		model.addAttribute("pc0", informesService.getCountTrueInscritos(cursos.get(0).getId()));
+		model.addAttribute("pc1", informesService.getCountTrueInscritos(cursos.get(1).getId()));
+		model.addAttribute("pc2", informesService.getCountTrueInscritos(cursos.get(2).getId()));
+		model.addAttribute("pc3", informesService.getCountTrueInscritos(cursos.get(3).getId()));
+		
+		//Numero de en lista de espera por curso
+		model.addAttribute("le0", informesService.getCountFalseInscritos(cursos.get(0).getId()));
+		model.addAttribute("le1", informesService.getCountFalseInscritos(cursos.get(1).getId()));
+		model.addAttribute("le2", informesService.getCountFalseInscritos(cursos.get(2).getId()));
+		model.addAttribute("le3", informesService.getCountFalseInscritos(cursos.get(3).getId()));
+		
+		//Promedio de cursos que inscribe cada postulante
+		model.addAttribute("p_curso", informesService.getInscripcionesPromedio());
+		
+		//Promedio de inscritos que hay por curso
+		model.addAttribute("p_ins", informesService.getInscritosPromedio());
+		
+		//Ultima inscripcion hecha
+		model.addAttribute("f_last", informesService.getLastInscripcion().getSimpleFecha());
+		
+		//Primera inscripcion hecha
+		model.addAttribute("f_first", informesService.getFirstInscripcion().getSimpleFecha());
+		
+		//Edad promedio por curso
+		model.addAttribute("e0", informesService.getEdadPromedio(cursos.get(0).getId()));
+		model.addAttribute("e1", informesService.getEdadPromedio(cursos.get(1).getId()));
+		model.addAttribute("e2", informesService.getEdadPromedio(cursos.get(2).getId()));
+		model.addAttribute("e3", informesService.getEdadPromedio(cursos.get(3).getId()));
+		
+		return "adminResumen";
+	}
 
 	// SIGNUP
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
