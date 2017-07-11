@@ -58,7 +58,7 @@ public class InscripcionServiceImpl implements InscripcionService {
 	public String getEstadoInscripcion(Long id) {
 		int inscritos = inscripcionMapper.getNumeroInscritos(id);
 		int cupo = inscripcionMapper.getCupoCurso(id);
-		if(inscritos >= cupo){
+		if(inscritos > cupo){
 			return "En lista de espera";
 		}else{
 			return "Preinscrito(a)";

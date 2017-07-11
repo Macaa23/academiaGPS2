@@ -66,7 +66,7 @@ INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirt
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('snooping4as', 'robotnik', '50403475', 'IVOr@gmail.com', 'Alfeo Ayala Urbina', '1988/05/15', 'Masculino','99457618');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('adfb2455', 'sonic', '69387667', 'hedeg@gmail.com', 'Alfeo Ayala Urbina', '1970/04/23', 'Femenino','21517548');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('sadfn3434', 'tails', '79035963', 'miles@gmail.com', 'Tirso Tejeda Muñoz', '1970/04/23', 'Masculino','294146582');
-INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('mammas24', 'mario', '161016292', 'spagett@gmail.com', 'Dagoberto Narváez Barreto', '1980/02/13', 'Masculino','51421679');
+INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('clave1234', 'mario', '161016292', 'spagett@gmail.com', 'Dagoberto Narváez Barreto', '1980/02/13', 'Masculino','51421679');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('pizag34', 'luigi', '4316767-7', 'gree@gmail.com', 'Armentario Salas Solano', '1970/05/14', 'Masculino','24712854');
 INSERT INTO postulante(password, userName, RUT, emailAddress, Nombre, dateOfBirth, genero, telefono) VALUES('fhh4954', 'peach', '103861926', 'brella@gmail.com', 'Lucina Cortez Perea', '1990/03/23', 'Femenino','75694582');
 
@@ -82,30 +82,35 @@ CREATE TABLE `inscripcion` (
   FOREIGN KEY (`course_id`) REFERENCES `curso` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,7);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,8);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'inscrito', 57,10);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'Preinscrito(a)', 57,4);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'Preinscrito(a)', 57,5);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'Preinscrito(a)', 57,6);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/30', 'Preinscrito(a)', 57,7);
 
-/*insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,7);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,8);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 54,10);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 54,4);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 54,5);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 54,6);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 54,7);
 
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,7);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,8);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 55,10);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 55,4);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 55,5);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 55,6);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 55,7);
 
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,7);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,8);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 56,10);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 56,4);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 56,5);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 56,6);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 56,7);
 
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,7);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,8);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,9);
-insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'inscrito', 58,10);*/
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 58,4);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 58,5);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 58,6);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 58,7);
+
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 53,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 59,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 60,7);
+insert into inscripcion (fecha, estado, postulante_id, course_id) values ('2017/05/29', 'Preinscrito(a)', 61,7);
 
 CREATE VIEW ranking AS
 SELECT curso.Nombre, curso.Nivel, curso.Cupo, count(inscripcion.id) as Inscritos_totales 
